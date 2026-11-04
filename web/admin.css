@@ -27,3 +27,7 @@ tr.dq td { opacity: .45; text-decoration: line-through; }
 .danger { margin-top: 16px; border-color: #efc3ca; }
 .danger-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 8px; }
 .danger .btn.ghost { background: var(--bad-bg); color: var(--bad); }
+.row-actions { white-space: nowrap; }
+.row-actions .small-btn + .small-btn { margin-left: 4px; }
+.small-btn.del { color: var(--bad); border-color: #efc3ca; }
+.small-btn.del:hover { background: var(--bad-bg); }

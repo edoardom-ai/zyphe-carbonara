@@ -84,6 +84,7 @@ export default async (request) => {
       if (b.action === 'admin_draw') return json(await adminDraw(db, !!b.force));
       if (b.action === 'admin_disqualify') return json(await adminDisqualify(db, String(b.id || ''), !!b.value));
       if (b.action === 'admin_reset') return json(await adminReset(db, String(b.confirm || '')));
+      if (b.action === 'admin_delete_lead') return json(await adminDeleteLead(db, String(b.id || '')));
     }
     return json({ ok: false, error: 'Unknown action' }, 404);
   } catch (err) {
@@ -275,6 +276,45 @@ async function adminDisqualify(db, id, value) {
   for (const k of boardKeys(keys).filter(k => k.endsWith('_' + id))) await db.delete(k);
   if (!value && lead.best_score > 0) await db.setJSON(lbKey(lead), { name: publicName(lead.first_name, lead.last_name), company: lead.company, score: lead.best_score });
   return { ok: true };
+}
+
+async function adminDeleteLead(db, id) {
+  // Removes ONE person completely: lead, ticket, play marker, leaderboard entry, games, and any draw they won.
+  // Afterwards their email counts as new. To keep the data but exclude someone, use Disqualify instead.
+  if (!/^[a-f0-9]{64}$/.test(id)) return { ok: false, error: 'Entry not found' };
+  const lead = await db.get(`leads/${id}`, { type: 'json' });
+  if (!lead) return { ok: false, error: 'Entry not found' };
+  const keys = await allKeys(db);
+  const games = keys.filter(k => k.startsWith('games/')), draws = keys.filter(k => k.startsWith('draws/'));
+  const [gameRows, drawRows] = await Promise.all([readAllWithKeys(db, games), readAllWithKeys(db, draws)]);
+  const doomed = [`leads/${id}`, `plays/${id}`, ...(lead.token ? [`tokens/${lead.token}`] : []),
+    ...boardKeys(keys).filter(k => k.endsWith('_' + id)), ...keys.filter(k => k.startsWith('lb/') && k.endsWith('_' + id)),
+    ...gameRows.filter(g => g.data.lead_id === id).map(g => g.key), ...drawRows.filter(d => d.data.lead_id === id).map(d => d.key)];
+  // tokens of simultaneous duplicate registrations can point at the same person too
+  const tokenKeys = keys.filter(k => k.startsWith('tokens/'));
+  const tokenRows = await readAllWithKeys(db, tokenKeys);
+  doomed.push(...tokenRows.filter(t => t.data.lead === id).map(t => t.key));
+  const unique = [...new Set(doomed)];
+  for (let i = 0; i < unique.length; i += 25) await Promise.all(unique.slice(i, i + 25).map(k => db.delete(k)));
+  // if they were the shown winner, show the previous remaining winner instead (or nobody)
+  const remaining = drawRows.filter(d => d.data.lead_id !== id).map(d => d.data).sort((a, b) => (a.drawn_at < b.drawn_at ? -1 : 1));
+  const lastWon = remaining[remaining.length - 1];
+  if (drawRows.some(d => d.data.lead_id === id)) {
+    if (lastWon) {
+      const [f, ...rest] = lastWon.name.split(' ');
+      await db.setJSON('winner', { name: publicName(f, rest.join(' ')), company: lastWon.company });
+    } else await db.delete('winner');
+  }
+  return { ok: true, deleted: unique.length, name: `${lead.first_name} ${lead.last_name}` };
+}
+async function readAllWithKeys(db, keys) {
+  const out = [];
+  for (let i = 0; i < keys.length; i += 25) {
+    const chunk = keys.slice(i, i + 25);
+    const vals = await Promise.all(chunk.map(k => db.get(k, { type: 'json' })));
+    chunk.forEach((k, j) => { if (vals[j]) out.push({ key: k, data: vals[j] }); });
+  }
+  return out;
 }
 
 async function adminReset(db, confirm) {

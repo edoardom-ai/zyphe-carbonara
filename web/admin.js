@@ -49,12 +49,19 @@
       <td>${['KYC', 'KYB', 'AML'].filter(n => e['need_' + n.toLowerCase()]).map(n => `<span class="tag-mini">${n}</span>`).join('') || '–'}${e.marketing ? '<br><span class="hint">✉ consent</span>' : ''}</td>
       <td>${esc(e.provider || '')}${e.provider_name ? `<br><span class="hint">${esc(e.provider_name)}</span>` : ''}</td>
       <td>${e.plays ? Number(e.best_score).toLocaleString() : '<span class="hint">not played</span>'}</td>
-      <td><button class="small-btn" data-id="${esc(e.id)}" data-v="${e.disqualified ? 0 : 1}">${e.disqualified ? 'Reinstate' : 'Disqualify'}</button></td></tr>`).join('')
+      <td class="row-actions"><button class="small-btn" data-act="dq" data-id="${esc(e.id)}" data-v="${e.disqualified ? 0 : 1}">${e.disqualified ? 'Reinstate' : 'Disqualify'}</button>
+        <button class="small-btn del" data-act="del" data-id="${esc(e.id)}" data-name="${esc(e.first_name + ' ' + e.last_name)}" data-email="${esc(e.email)}">Delete</button></td></tr>`).join('')
       || '<tr><td colspan="9" class="hint">No leads yet</td></tr>';
   }
   $('#q').oninput = () => data && rows();
   $('#rows').onclick = async e => {
     const b = e.target.closest('button[data-id]'); if (!b) return;
+    if (b.dataset.act === 'del') {
+      if (!confirm(`Delete ${b.dataset.name} (${b.dataset.email}) and all their data?\n\nThis removes their lead, games, leaderboard entry and any draw they won. It can't be undone, and the same email could sign up and play again.\n\nTo just keep them out of the draw, use Disqualify instead.`)) return;
+      b.disabled = true;
+      try { await call('admin_delete_lead', { id: b.dataset.id }); } catch (err) { alert(err.message); }
+      return load();
+    }
     if (b.dataset.v === '1' && !confirm('Disqualify this entry from the leaderboard and the prize draw?')) return;
     await call('admin_disqualify', { id: b.dataset.id, value: b.dataset.v === '1' }); load();
   };
