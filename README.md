@@ -39,6 +39,10 @@ From now on, every change pushed to `main` deploys automatically. Drag-and-drop 
 ## Rules the API enforces
 - One entry per email address. Re-registering with the same email keeps the original details.
 - **One game per person.** Only the first game counts; later attempts are logged as "Repeat play: not counted".
+- **Disqualify** (per row on the admin page) keeps a person's data but removes them from the leaderboard and the draw.
+- **Delete** (per row) removes one person completely: lead, games, leaderboard entry and any draw they won. For test entries
+  or "please delete my data" requests. Afterwards that email counts as new and could play again.
+- **Delete all data** (bottom of the admin page) wipes everything. Only for clearing test runs before doors open.
 - Implausible scores count as 0. Marketing consent is required, and its time, wording and version are stored.
 - @zyphe.com addresses can play but can't win.
 
@@ -56,7 +60,7 @@ earlier winners. Before the close it refuses unless you tick "draw anyway", whic
 ## Changing things
 - Event settings (prize, close time, consent wording, dropdown lists, staff domain): the `CFG` block at the top of
   `netlify/functions/api.mjs`. The dropdown lists must match `OPTIONS` in `web/app.js`.
-- Game content (cases, red flags, L1/L2 alerts): `web/game-data.js`. Brand colours: `web/styles.css`.
+- Game content (cases, red flags, L1/L2 alerts, and the `WARMUP` list of ingredients every game starts with): `web/game-data.js`. Brand colours: `web/styles.css`.
 - Edit a file on github.com (pencil icon → Commit changes) and Netlify redeploys within a minute.
 
 ## Files

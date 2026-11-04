@@ -15,7 +15,7 @@
   const AUTHENTIC = {
     guanciale: { name: 'Guanciale', emoji: '🥓', origin: ['Amatrice, Lazio', 'Norcia, Umbria', 'Roma, Lazio'], cert: 'Cured pork cheek · verified' },
     pecorino: { name: 'Pecorino Romano', emoji: '🧀', origin: ['Lazio', 'Sardegna', 'Grosseto, Toscana'], cert: 'DOP · consortium verified' },
-    uova: { name: 'Egg yolks', emoji: '🥚', origin: ['Free-range farm, Lazio', 'Viterbo, Lazio'], cert: 'Grade A · fresh' },
+    uova: { name: 'Egg yolks only', emoji: '🥚', origin: ['Free-range farm, Lazio', 'Viterbo, Lazio'], cert: 'Grade A · fresh' },
     pepe: { name: 'Black pepper', emoji: '🫙', origin: ['Kerala, India', 'Sarawak, Malaysia'], cert: 'Freshly ground' },
     pasta: { name: 'Rigatoni', alt: ['Spaghetti', 'Rigatoni', 'Mezze maniche', 'Tonnarelli'], emoji: '🍝', origin: ['Gragnano, Campania'], cert: 'Bronze-drawn · IGP' },
   };
@@ -26,12 +26,17 @@
   // sub = substitute for a real ingredient (L1 substitution alert). Otherwise prohibited outright (L2).
   const IMPOSTORS = [
     { name: 'Pancetta', emoji: '🥓', origin: 'Piacenza, Emilia-Romagna', cert: 'Cured pork belly · DOP', sub: 'Guanciale' },
-    { name: 'Smoked bacon', emoji: '🥓', origin: 'Cork, Ireland', cert: 'Smoked pork belly · verified', sub: 'Guanciale' },
+    { name: 'Bacon', emoji: '🥓', origin: 'Cork, Ireland', cert: 'Smoked pork belly · verified', sub: 'Guanciale' },
     { name: 'Prosciutto cotto', emoji: '🍖', origin: 'Parma, Emilia-Romagna', cert: 'Cooked ham · verified', sub: 'Guanciale' },
-    { name: 'Parmigiano Reggiano', emoji: '🧀', origin: 'Parma, Emilia-Romagna', cert: 'DOP · consortium verified', sub: 'Pecorino Romano' },
+    { name: 'Parmigiano', emoji: '🧀', origin: 'Parma, Emilia-Romagna', cert: 'DOP · consortium verified', sub: 'Pecorino Romano' },
     { name: 'Grana Padano', emoji: '🧀', origin: 'Lodi, Lombardia', cert: 'DOP · consortium verified', sub: 'Pecorino Romano' },
     { name: 'Cheddar', emoji: '🧀', origin: 'Somerset, UK', cert: 'Mature · verified', sub: 'Pecorino Romano' },
-    { name: 'Chilli flakes', emoji: '🌶️', origin: 'Calabria', cert: 'Dried · verified', sub: 'Black pepper' },
+    { name: 'Chili pepper', emoji: '🌶️', origin: 'Calabria', cert: 'Fresh · verified', sub: 'Black pepper' },
+    { name: 'Pepperoni', emoji: '🍕', origin: 'New Jersey, USA', cert: 'Spicy salami · verified', sub: 'Black pepper' },
+    { name: 'Pecorino Sardo', emoji: '🧀', origin: 'Sardegna', cert: 'DOP · consortium verified', sub: 'Pecorino Romano' },
+    { name: 'Egg whites', emoji: '🥚', origin: 'Free-range farm, Lazio', cert: 'Grade A · fresh', sub: 'Egg yolks only' },
+    { name: 'Milk', emoji: '🥛', origin: 'Dairy farm, Lombardia', cert: 'Whole · verified' },
+    { name: 'Avocado', emoji: '🥑', origin: 'Michoacán, Mexico', cert: 'Ripe · verified' },
     { name: 'White pepper', emoji: '🫙', origin: 'Kampot, Cambodia', cert: 'Freshly ground', sub: 'Black pepper' },
     { name: 'Panna (cream)', emoji: '🥛', origin: 'Dairy farm, Lombardia', cert: 'Fresh · 35% fat' },
     { name: 'Butter', emoji: '🧈', origin: 'Normandie, France', cert: 'AOP · verified' },
@@ -111,9 +116,11 @@
     c.emojiAvatar = true;
     return c;
   }
-  function impostor(absurdOnly) {
+  function impostor(absurdOnly, byName) {
     // mostly nonsense ingredients (easy), sometimes a plausible wrong one (pancetta, parmigiano, cream…)
-    const im = absurdOnly || Math.random() < 0.6 ? pick(ABSURD) : pick(IMPOSTORS);
+    const im = byName ? IMPOSTORS.concat(ABSURD).find(x => x.name === byName)
+      : absurdOnly || Math.random() < 0.5 ? pick(ABSURD) : pick(IMPOSTORS);
+    if (!im) throw new Error('Unknown ingredient ' + byName);
     const f = { 'Name on label': im.name, Origin: im.origin, Certificate: im.cert, 'Best before': future(), Screening: 'No hits on Nonna\'s list' };
     const alert = im.sub
       ? { level: 'L1', rule: 'Ingredient substitution', detail: `${im.name} · Not on the approved recipe · Closest approved match: ${im.sub} (${rnd(62, 81)}%)` }
@@ -177,18 +184,26 @@
       fields: Object.entries(f).map(([k, v]) => ({ k, v, bad: k === badKey })) };
   }
 
-  let last = '', dealt = 0;
+  // Real: guanciale, Pecorino Romano, egg yolks, black pepper. Everything else here is wrong.
+  const WARMUP = ['Pancetta', 'Bacon', 'guanciale', 'Panna (cream)', 'pecorino', 'Parmigiano', 'Pecorino Sardo', 'Onion',
+    'Egg whites', 'uova', 'Milk', 'pepe', 'Pepperoni', 'Pineapple', 'Avocado', 'Chili pepper'];
+  function warmupCard(item) {
+    if (KEYS.includes(item)) return ingredient(null, item, true); // a real, clean ingredient
+    return impostor(false, item);
+  }
+  function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+  let last = '', dealt = 0, deck = [];
   window.ZyCases = {
     AUTHENTIC, KEYS,
     /** call at the start of every game: restarts the warm-up sequence */
-    reset() { dealt = 0; last = ''; },
+    reset() { dealt = 0; last = ''; deck = []; },
     /** needKey: an ingredient still missing from the pot, so the generator nudges it in */
     next(needKey) {
-      // Warm-up: the first five cards are the real recipe, all clean, in order (one carbonara served),
-      // then one ingredient that makes no sense, so players learn both buttons in the first seconds.
+      // Warm-up: the first cards are a shuffled mix of real and wrong ingredients (WARMUP), so players
+      // need to know the recipe from the first card. Then the normal mix of KYC, KYB and AML cases follows.
       const n = dealt++;
-      if (n < KEYS.length) return ingredient(null, KEYS[n], true);
-      if (n === KEYS.length) return impostor(true);
+      if (n === 0) deck = shuffle(WARMUP.slice());
+      if (n < deck.length) return warmupCard(deck[n]);
       const r = Math.random();
       let t = r < 0.65 ? 'KYC' : r < 0.8 ? 'KYB' : 'AML';
       if (t === last && t !== 'KYC' && Math.random() < 0.5) t = 'KYC';
