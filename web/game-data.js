@@ -1,0 +1,175 @@
+/* Carbonara Compliance: case generator.
+ * Three queues, like a real compliance team:
+ *   KYC  → ingredients applying to join the carbonara (identity, origin, expiry, Nonna's sanctions list)
+ *   KYB  → suppliers onboarding to the trattoria (owners, registry, licences)
+ *   AML  → players on the casino floor (transaction monitoring)
+ * Each case is clean or carries exactly ONE red flag. */
+(function () {
+  const pick = a => a[Math.floor(Math.random() * a.length)];
+  const rnd = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
+  const eur = n => '€' + n.toLocaleString('en-US');
+  // always after the event (Nov 2026), so a clean card never looks expired
+  const future = () => { const m = pick(['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May']); return `${rnd(1, 28)} ${m} ${m === 'Dec' ? 2026 : 2027}`; };
+
+  // ---- the five legit carbonara ingredients ----
+  const AUTHENTIC = {
+    guanciale: { name: 'Guanciale', emoji: '🥓', origin: ['Amatrice, Lazio', 'Norcia, Umbria', 'Roma, Lazio'], cert: 'Cured pork cheek · verified' },
+    pecorino: { name: 'Pecorino Romano', emoji: '🧀', origin: ['Lazio', 'Sardegna', 'Grosseto, Toscana'], cert: 'DOP · consortium verified' },
+    uova: { name: 'Egg yolks', emoji: '🥚', origin: ['Free-range farm, Lazio', 'Viterbo, Lazio'], cert: 'Grade A · fresh' },
+    pepe: { name: 'Black pepper', emoji: '🫙', origin: ['Kerala, India', 'Sarawak, Malaysia'], cert: 'Freshly ground' },
+    pasta: { name: 'Rigatoni', alt: ['Spaghetti', 'Rigatoni', 'Mezze maniche', 'Tonnarelli'], emoji: '🍝', origin: ['Gragnano, Campania'], cert: 'Bronze-drawn · IGP' },
+  };
+  const KEYS = Object.keys(AUTHENTIC);
+
+  // ---- fake / wrong ingredients ----
+  // Their paperwork looks clean on purpose: only knowing the real recipe gives them away.
+  // sub = substitute for a real ingredient (L1 substitution alert). Otherwise prohibited outright (L2).
+  const IMPOSTORS = [
+    { name: 'Pancetta', emoji: '🥓', origin: 'Piacenza, Emilia-Romagna', cert: 'Cured pork belly · DOP', sub: 'Guanciale' },
+    { name: 'Smoked bacon', emoji: '🥓', origin: 'Cork, Ireland', cert: 'Smoked pork belly · verified', sub: 'Guanciale' },
+    { name: 'Prosciutto cotto', emoji: '🍖', origin: 'Parma, Emilia-Romagna', cert: 'Cooked ham · verified', sub: 'Guanciale' },
+    { name: 'Parmigiano Reggiano', emoji: '🧀', origin: 'Parma, Emilia-Romagna', cert: 'DOP · consortium verified', sub: 'Pecorino Romano' },
+    { name: 'Grana Padano', emoji: '🧀', origin: 'Lodi, Lombardia', cert: 'DOP · consortium verified', sub: 'Pecorino Romano' },
+    { name: 'Cheddar', emoji: '🧀', origin: 'Somerset, UK', cert: 'Mature · verified', sub: 'Pecorino Romano' },
+    { name: 'Chilli flakes', emoji: '🌶️', origin: 'Calabria', cert: 'Dried · verified', sub: 'Black pepper' },
+    { name: 'White pepper', emoji: '🫙', origin: 'Kampot, Cambodia', cert: 'Freshly ground', sub: 'Black pepper' },
+    { name: 'Panna (cream)', emoji: '🥛', origin: 'Dairy farm, Lombardia', cert: 'Fresh · 35% fat' },
+    { name: 'Butter', emoji: '🧈', origin: 'Normandie, France', cert: 'AOP · verified' },
+    { name: 'Garlic', emoji: '🧄', origin: 'Sulmona, Abruzzo', cert: 'Red garlic · verified' },
+    { name: 'Onion', emoji: '🧅', origin: 'Tropea, Calabria', cert: 'IGP · verified' },
+    { name: 'Peas', emoji: '🫛', origin: 'Frozen, EU', cert: 'Grade A · verified' },
+    { name: 'Mushrooms', emoji: '🍄', origin: 'Champignon farm, Veneto', cert: 'Fresh · verified' },
+    { name: 'Parsley', emoji: '🌿', origin: 'Garden, Lazio', cert: 'Fresh · verified' },
+    { name: 'Pineapple', emoji: '🍍', origin: 'Hawaii, USA', cert: 'Ripe · verified' },
+  ];
+
+  const FIRST = ['Luca', 'Sofia', 'Matteo', 'Giulia', 'Marco', 'Chiara', 'Lorenzo', 'Francesca', 'Alessandro', 'Elena', 'Davide',
+    'Martina', 'Emma', 'Noah', 'Lars', 'Yuki', 'Kwame', 'Priya', 'Omar', 'Freya', 'Andrei', 'Camila', 'Nikos', 'Maja'];
+  const LAST = ['Rossi', 'Russo', 'Ferrari', 'Esposito', 'Bianchi', 'Romano', 'Colombo', 'Ricci', 'Marino', 'Greco', 'Bruno', 'Gallo',
+    'Conti', 'De Luca', 'Costa', 'Müller', 'Novak', 'Silva', 'Andersen', 'Tanaka', 'Okafor', 'Petrov', 'Dubois', 'Haddad'];
+  const COUNTRIES = ['Italy', 'Malta', 'Germany', 'Spain', 'Sweden', 'Ireland', 'Netherlands', 'Brazil', 'Canada', 'Portugal', 'Greece', 'Poland'];
+  const REG_OK = ['Roma', 'Milano', 'Malta', 'Gibraltar', 'Isle of Man', 'Cyprus', 'Ireland', 'Netherlands'];
+  const HIGH_RISK = ['North Korea', 'Iran', 'Myanmar'];
+  const SUPPLIERS = ['Salumificio Tiberino', 'Caseificio Colosseo', 'Pastificio Trastevere', 'Uova del Gianicolo', 'Spezie dell\'Impero',
+    'Forno Testaccio', 'Vini dei Castelli', 'Gladiator Payments', 'Aurelia Game Studio', 'Lupa Affiliates', 'Fontana Media'];
+  const SUPPLIER_KIND = ['Food supplier', 'Food supplier', 'Payment provider', 'Game studio', 'Affiliate partner'];
+  const HANDLES = ['gladiator', 'caesar_bets', 'lupa_lucky', 'nero_spins', 'trevi_coin', 'centurion', 'vespa_vince', 'colosseo_king', 'aurelio', 'roma_ace'];
+  const PALETTE = ['#4fd1ff', '#b18cff', '#ffc857', '#2ee6a6', '#ff9f6e', '#8ab4ff', '#f78fd6'];
+
+  let seq = 100 + rnd(0, 800);
+  const person = () => ({ first: pick(FIRST), last: pick(LAST) });
+
+  // ---------- KYC: ingredients ----------
+  function ingredient(needKey) {
+    if (Math.random() < 0.38) return impostor();
+    const key = needKey && Math.random() < 0.55 ? needKey : pick(KEYS);
+    const a = AUTHENTIC[key];
+    const name = a.alt ? pick(a.alt) : a.name;
+    const f = { 'Name on label': name, Origin: pick(a.origin), Certificate: a.cert, 'Best before': future(), Screening: 'No hits on Nonna\'s list' };
+    // each risk returns [field, level, rule, evidence]
+    const risks = {
+      guanciale: [
+        () => { f['Name on label'] = 'Pancetta affumicata'; return ['Name on label', 'L1', 'Identity mismatch', `Declared: ${name} · On label: Pancetta affumicata`]; },
+        () => { f.Origin = pick(['Ohio, USA', 'Unknown, no paperwork']); return ['Origin', 'L1', 'Origin mismatch', `Origin: ${f.Origin} · Expected: Lazio / Umbria`]; },
+      ],
+      pecorino: [
+        () => { f.Origin = pick(['Wisconsin, USA', 'Ontario, Canada']); return ['Origin', 'L2', 'Forged certificate', `DOP claimed · Origin ${f.Origin} is outside the DOP area`]; },
+        () => { f['Name on label'] = 'Parmigiano'; return ['Name on label', 'L1', 'Identity mismatch', `Declared: ${name} · On label: Parmigiano`]; },
+        () => { f.Certificate = 'DOP · certificate not found'; return ['Certificate', 'L2', 'Document authenticity', 'DOP certificate not found in the consortium registry']; },
+      ],
+      uova: [
+        () => { f['Best before'] = `${pick(['3 weeks', '2 months', '1 year'])} ago`; return ['Best before', 'L1', 'Expired document', `Best before: ${f['Best before']}`]; },
+        () => { f['Name on label'] = 'Egg whites only'; return ['Name on label', 'L1', 'Identity mismatch', `Declared: ${name} · On label: Egg whites only`]; },
+      ],
+      pepe: [
+        () => { f['Name on label'] = 'Paprika'; return ['Name on label', 'L1', 'Identity mismatch', `Declared: ${name} · On label: Paprika`]; },
+        () => { f.Certificate = 'Pre-ground in 2019'; return ['Certificate', 'L1', 'Stale credentials', 'Ground in 2019 · Freshly ground required']; },
+      ],
+      pasta: [
+        () => { f.Certificate = 'Overcooked · 14 minutes'; return ['Certificate', 'L1', 'Due diligence failed', 'Cooking time 14 min · Al dente limit exceeded']; },
+        () => { f['Name on label'] = 'Farfalle'; return ['Name on label', 'L1', 'Identity mismatch', `Declared: ${name} · On label: Farfalle`]; },
+      ],
+    }[key];
+    const generic = [() => { f.Screening = pick(['Match: Nonna\'s watchlist', 'Match: Roman sanctions list']); return ['Screening', 'L2', 'Sanctions hit', `${f.Screening.replace('Match: ', '')} · Match score ${rnd(91, 99)}%`]; }];
+    const c = build('KYC', name, 'Applying to join the carbonara', a.emoji, f, risks.concat(generic), 0.3);
+    c.ingredient = c.risky ? null : key;
+    c.emojiAvatar = true;
+    return c;
+  }
+  function impostor() {
+    const im = pick(IMPOSTORS);
+    const f = { 'Name on label': im.name, Origin: im.origin, Certificate: im.cert, 'Best before': future(), Screening: 'No hits on Nonna\'s list' };
+    const alert = im.sub
+      ? { level: 'L1', rule: 'Ingredient substitution', detail: `${im.name} · Not on the approved recipe · Closest approved match: ${im.sub} (${rnd(62, 81)}%)` }
+      : { level: 'L2', rule: 'Prohibited ingredient', detail: `${im.name} · On the restricted list for carbonara` };
+    const id = `KYC-${seq++}`;
+    return { id, type: 'KYC', title: im.name, subtitle: 'Applying to join the carbonara', avatar: im.emoji, emojiAvatar: true,
+      color: '#ff5c7a', risky: true, alert: Object.assign({ id }, alert), reason: `${alert.level} · ${alert.rule}: ${alert.detail}`, badKey: 'Name on label',
+      fields: Object.entries(f).map(([k, v]) => ({ k, v, bad: k === 'Name on label' })) };
+  }
+
+  // ---------- KYB: suppliers ----------
+  function supplier() {
+    const name = pick(SUPPLIERS) + ' Srl', kind = pick(SUPPLIER_KIND), o = person();
+    const f = {
+      Registered: `${pick(REG_OK)} · active`,
+      'Ultimate owner': `${o.first} ${o.last} (${pick([100, 75, 60, 51])}%)`,
+      Directors: `${rnd(2, 4)} verified · no hits`,
+      Licence: kind === 'Food supplier' ? 'HACCP · valid' : kind === 'Affiliate partner' ? 'ADM affiliate reg. · valid' : `${pick(['ADM', 'MGA', 'UKGC'])} B2B · valid`,
+    };
+    const risks = [
+      () => { f['Ultimate owner'] = pick(['Undisclosed: nominee shareholders', 'Not provided', 'Bearer shares']); return ['Ultimate owner', 'L2', 'UBO not identified', `Ultimate owner: ${f['Ultimate owner']}`]; },
+      () => { const j = pick(HIGH_RISK); f.Registered = `${j} · active`; return ['Registered', 'L2', 'High-risk jurisdiction', `Registered in ${j} · FATF call-for-action list`]; },
+      () => { const y = rnd(2021, 2025); f.Registered = `${pick(REG_OK)} · dissolved ${y}`; return ['Registered', 'L1', 'Registry check failed', `Company status: dissolved in ${y}`]; },
+      () => { f.Directors = '1 director on OFAC SDN list'; return ['Directors', 'L2', 'Sanctions hit', `Director matched on OFAC SDN list · Match score ${rnd(92, 99)}%`]; },
+      () => { const n = rnd(4, 7); f['Ultimate owner'] = `${n} layers of shells via BVI`; return ['Ultimate owner', 'L2', 'Complex ownership structure', `${n} holding layers via BVI · UBO not reachable`]; },
+      () => { f.Licence = pick(['Expired 2024', 'Revoked by regulator', 'None held']); return ['Licence', 'L1', 'Licence check failed', `Licence: ${f.Licence}`]; },
+    ];
+    return build('KYB', name, `${kind} onboarding`, name.split(' ').slice(0, 2).map(w => w[0]).join(''), f, risks, 0.5);
+  }
+
+  // ---------- AML: players ----------
+  function player() {
+    const h = pick(HANDLES) + rnd(1, 99), c = pick(COUNTRIES), lo = rnd(1, 4) * 50;
+    const f = {
+      Account: `${rnd(1, 6)} yrs · ${c}`,
+      Activity: `Deposits ${eur(lo)}–${eur(lo * rnd(3, 6))}/week, regular play`,
+      Payments: `${pick(['Visa', 'Mastercard', 'PayPal', 'Apple Pay'])} · own name`,
+      Location: `IP ${c} · matches profile`,
+    };
+    const risks = [
+      () => { const n = rnd(7, 12), v = rnd(97, 99) * 100; f.Activity = `${n} deposits of ${eur(v)} in 24h`; return ['Activity', 'L2', 'Structuring', `${n} × ${eur(v)} in 24h · Just under the €10,000 threshold`]; },
+      () => { const d = rnd(3, 9) * 10000, w = d - rnd(2, 9) * 100; f.Activity = `Deposited ${eur(d)} → withdrew ${eur(w)}, 0 bets`; return ['Activity', 'L2', 'Pass-through activity', `In ${eur(d)} · Out ${eur(w)} · Wagered €0`]; },
+      () => { const n = rnd(5, 8); f.Payments = `${n} cards · ${n} different names`; return ['Payments', 'L1', 'Third-party payments', `${n} cards registered to ${n} different cardholders`]; },
+      () => { const j = pick(HIGH_RISK); f.Location = `IP ${j} via VPN`; return ['Location', 'L1', 'Geolocation mismatch', `IP: ${j} via VPN · Profile: ${c}`]; },
+      () => { const v = rnd(12, 30) * 10000; f.Activity = `${eur(v)} in 30 days · no source of funds`; return ['Activity', 'L2', 'Source of funds missing', `${eur(v)} deposited in 30 days · No SoF documents`]; },
+      () => { const v = rnd(4, 9) * 10000; f.Account = `${rnd(1, 3)} days old · ${c}`; f.Activity = `${eur(v)} deposited on day one`; return ['Activity', 'L1', 'Velocity rule', `New account · ${eur(v)} deposited within 24h of opening`]; },
+      () => { const n = rnd(20, 60); f.Payments = `${n} Trevi Fountain coins`; return ['Payments', 'L1', 'Unusual payment method', `${n} coins recovered from the Trevi Fountain`]; },
+    ];
+    return build('AML', '@' + h, 'Transaction monitoring alert', h.slice(0, 2).toUpperCase(), f, risks, 0.5);
+  }
+
+  function build(type, title, subtitle, avatar, f, risks, pRisk) {
+    const risky = Math.random() < pRisk, id = `${type}-${seq++}`;
+    let badKey = null, reason = 'Clean case', alert = null;
+    if (risky) {
+      const [key, level, rule, detail] = pick(risks)();
+      badKey = key; alert = { id, level, rule, detail }; reason = `${level} · ${rule}: ${detail}`;
+    }
+    return { id, type, title, subtitle, avatar, color: pick(PALETTE), risky, reason, badKey, alert,
+      fields: Object.entries(f).map(([k, v]) => ({ k, v, bad: k === badKey })) };
+  }
+
+  let last = '';
+  window.ZyCases = {
+    AUTHENTIC, KEYS,
+    /** needKey: an ingredient still missing from the pot, so the generator nudges it in */
+    next(needKey) {
+      const r = Math.random();
+      let t = r < 0.5 ? 'KYC' : r < 0.75 ? 'KYB' : 'AML';
+      if (t === last && t !== 'KYC' && Math.random() < 0.5) t = 'KYC';
+      last = t;
+      return t === 'KYC' ? ingredient(needKey) : t === 'KYB' ? supplier() : player();
+    },
+  };
+})();

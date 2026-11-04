@@ -1,0 +1,26 @@
+# Netlify reads this file when the site is connected to the GitHub repository.
+[build]
+  publish = "web"            # the website
+  functions = "netlify/functions"   # the API (served at /api)
+  command = ""               # nothing to build
+
+[functions]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/leaderboard"
+  to = "/leaderboard.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+
+[[headers]]
+  for = "/admin.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"

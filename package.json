@@ -1,0 +1,9 @@
+{
+  "name": "zyphe-carbonara-compliance",
+  "private": true,
+  "description": "Zyphe Carbonara Compliance: booth game and prize draw for SiGMA Rome 2026, on Netlify (static site + Functions + Blobs)",
+  "type": "module",
+  "dependencies": {
+    "@netlify/blobs": "11.1.2"
+  }
+}

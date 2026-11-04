@@ -1,0 +1,12 @@
+# Optional: only needed if you deploy with the wrangler command line instead of the Cloudflare dashboard.
+name = "zyphe-carbonara-api"
+main = "worker.js"
+compatibility_date = "2024-09-23"
+
+[vars]
+ALLOWED_ORIGINS = "https://zyphe-carbonara.netlify.app"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "zyphe-carbonara"
+database_id = "PASTE_D1_DATABASE_ID"

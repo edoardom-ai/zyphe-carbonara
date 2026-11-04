@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Carbonara Admin · Zyphe</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><svg class="zy-logo" viewBox="0 0 876 213" role="img" aria-label="Zyphe" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M226.096 137.55C226.209 137.492 226.323 137.437 226.44 137.384C251.75 126.01 269.326 100.993 269.326 71.9595C269.326 32.2174 236.393 0 195.769 0H46.1335L226.096 137.55Z"/><path d="M80.9135 76.4551L259.561 213H113.386C72.7624 213 39.8301 180.783 39.8301 141.041C39.8301 112.702 56.5751 88.1889 80.9135 76.4551Z"/><path d="M0 0H27.0174L305.695 213H278.677L0 0Z"/><path d="M357.483 147.697H392.974H460.462V172.703H357.483V147.697ZM422.765 67.462L422.121 69.6208V66.3826L458.991 66.7424L392.974 147.697L393.526 144.818V148.057L357.483 147.697L422.765 67.462ZM358.219 42.4561H458.991V66.7424L422.765 67.462H358.219V42.4561Z"/><path d="M462.724 79.875H490.308L526.258 172.703H501.893L462.724 79.875ZM501.893 172.703L514.305 143.829H517.248L515.777 144.639L539.958 79.875H567.358L513.662 211.561H486.078L501.893 172.703Z"/><path d="M572.286 79.875H598.399V101.643L594.261 126.289L598.399 153.993V211.561H572.286V79.875ZM601.341 160.02H589.756V92.5579H601.341L591.962 126.289C591.962 115.375 593.342 106.29 596.1 99.0342C598.858 91.7183 602.873 86.2914 608.145 82.7534C613.416 79.1554 619.791 77.3564 627.269 77.3564C635.851 77.3564 643.482 79.4852 650.164 83.7428C656.906 88.0004 662.147 93.8471 665.887 101.283C669.687 108.719 671.587 117.054 671.587 126.289C671.587 135.464 669.687 143.799 665.887 151.295C662.147 158.731 656.906 164.577 650.164 168.835C643.482 173.092 635.851 175.221 627.269 175.221C619.791 175.221 613.416 173.422 608.145 169.824C602.873 166.226 598.858 160.799 596.1 153.543C593.342 146.288 591.962 137.203 591.962 126.289L601.341 160.02ZM621.477 151.834C626.074 151.834 630.181 150.755 633.798 148.596C637.475 146.378 640.295 143.319 642.256 139.421C644.279 135.524 645.291 131.146 645.291 126.289C645.291 121.312 644.279 116.904 642.256 113.066C640.295 109.168 637.475 106.14 633.798 103.981C630.181 101.823 626.074 100.743 621.477 100.743C616.941 100.743 612.865 101.823 609.248 103.981C605.632 106.14 602.781 109.168 600.697 113.066C598.674 116.904 597.663 121.312 597.663 126.289C597.663 131.206 598.674 135.614 600.697 139.511C602.781 143.349 605.632 146.378 609.248 148.596C612.865 150.755 616.941 151.834 621.477 151.834Z"/><path d="M679.641 42.4561H705.754V172.703H679.641V42.4561ZM743.635 121.971C743.635 115.195 742.072 109.978 738.946 106.32C735.881 102.602 731.56 100.743 725.982 100.743C722.182 100.743 718.749 101.673 715.684 103.532C712.619 105.331 710.198 108.149 708.42 111.987C706.643 115.765 705.754 120.532 705.754 126.289L702.812 109.019V93.6372H708.696L702.812 109.019C702.812 102.782 704.191 97.2952 706.949 92.5579C709.769 87.7606 713.661 84.0427 718.626 81.4041C723.591 78.7057 729.261 77.3564 735.636 77.3564C742.747 77.3564 748.846 78.9755 753.933 82.2137C759.082 85.4519 763.005 90.0992 765.702 96.1558C768.399 102.152 769.748 109.318 769.748 117.654V172.703H743.635V121.971Z"/><path d="M829.292 175.221C819.239 175.221 810.32 173.122 802.536 168.925C794.751 164.727 788.683 158.91 784.331 151.475C779.978 143.979 777.802 135.584 777.802 126.289C777.802 116.874 779.948 108.449 784.239 101.013C788.591 93.5773 794.536 87.7905 802.076 83.6529C809.615 79.4552 818.136 77.3564 827.637 77.3564C837.076 77.3564 845.443 79.4552 852.738 83.6529C860.093 87.7905 865.794 93.5773 869.84 101.013C873.946 108.449 876 116.874 876 126.289C876 128.807 875.785 131.566 875.356 134.564H816.787V115.045H850.807L849.428 117.834C849.428 114.116 848.508 110.788 846.669 107.849C844.892 104.851 842.348 102.512 839.038 100.833C835.728 99.0942 831.927 98.2247 827.637 98.2247C822.978 98.2247 818.81 99.3041 815.132 101.463C811.516 103.562 808.696 106.71 806.673 110.908C804.712 115.045 803.731 120.082 803.731 126.019C803.731 131.896 804.834 136.993 807.041 141.31C809.248 145.568 812.282 148.806 816.144 151.025C820.005 153.244 824.419 154.353 829.384 154.353C834.287 154.353 838.456 153.334 841.888 151.295C845.321 149.256 847.957 146.438 849.796 142.84L872.506 151.025C868.644 158.581 863.005 164.517 855.588 168.835C848.171 173.092 839.406 175.221 829.292 175.221Z"/></svg><small>Admin</small></div>
+    <div class="admin-actions" id="topActions" hidden>
+      <button class="btn ghost" id="btnExport">Export CSV</button>
+      <a class="btn ghost" href="leaderboard.html" target="_blank" rel="noopener">Booth screen</a>
+      <button class="btn ghost" id="btnLogout">Log out</button>
+    </div>
+  </header>
+
+  <section id="login" class="card-panel form" style="max-width:440px">
+    <h2>Admin login</h2>
+    <p class="hint">Use the ADMIN_PASSWORD set in Netlify (Site configuration → Environment variables).</p>
+    <form id="loginForm">
+      <div class="field"><label for="pw">Password</label><input id="pw" type="password" autocomplete="current-password" required></div>
+      <div class="form-foot"><span class="form-error" id="loginErr"></span><button class="btn" type="submit">Log in</button></div>
+    </form>
+  </section>
+
+  <section id="dash" hidden>
+    <div class="kpis">
+      <div><b id="kTotal">0</b><span>Registered</span></div>
+      <div><b id="kPlayed">0</b><span>Played</span></div>
+      <div><b id="kEligible">0</b><span>Eligible for the draw</span></div>
+      <div><b id="kMkt">0</b><span>Marketing consent</span></div>
+      <div><b id="kGames">0</b><span>Games counted</span></div>
+    </div>
+
+    <div class="card-panel draw-stage">
+      <div class="eyebrow" id="drawStatus">Prize draw</div>
+      <div class="reel" id="reel">🎁</div>
+      <div class="hint" id="reelSub"></div>
+      <label class="check" style="justify-content:center"><input type="checkbox" id="force"> <span>Draw anyway (entries are still open: use for a test)</span></label>
+      <button class="btn big" id="btnDraw">Draw the winner</button>
+      <p class="hint">Uniform random draw, one ticket per person: accepted the terms, played, registered before the close, not staff, not disqualified. Drawing again skips earlier winners, so use it if a winner doesn't reply.</p>
+      <div id="drawLog" class="hint"></div>
+    </div>
+
+    <div class="cols">
+      <div class="card-panel"><b>What they do</b><div class="bars" id="bSeg"></div></div>
+      <div class="card-panel"><b>Role</b><div class="bars" id="bRole"></div></div>
+      <div class="card-panel"><b>Current provider</b><div class="bars" id="bProv"></div></div>
+      <div class="card-panel"><b>Needs</b><div class="bars" id="bNeed"></div></div>
+    </div>
+
+    <div class="card-panel">
+      <div class="table-head"><b>Leads</b><input class="search" id="q" placeholder="Search name, company, email"></div>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Registered</th><th>Name</th><th>Company</th><th>Contact</th><th>Role / company type</th><th>Needs</th><th>Provider</th><th>Score</th><th></th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table></div>
+    </div>
+    <div class="card-panel danger">
+      <b>Delete all data</b>
+      <p class="hint">Removes every lead, game, draw and the leaderboard. Use it once, before doors open, to clear your test runs. This can't be undone, so export a CSV first if in doubt.</p>
+      <div class="danger-row"><input class="search" id="resetConfirm" placeholder="Type DELETE ALL DATA"><button class="btn ghost" id="btnReset">Delete all data</button></div>
+      <div class="hint" id="resetMsg"></div>
+    </div>
+  </section>
+</div>
+<script src="config.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
