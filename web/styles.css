@@ -275,3 +275,18 @@ footer { margin-top: 28px; padding-top: 14px; border-top: 1px solid var(--line);
 /* L3 alerts (highest severity, set in the question bank) */
 .kyc-alert.L3 { border-left-color: var(--dark); }
 .kyc-alert.L3 .ka-lvl { background: var(--dark); color: #fff; }
+
+/* Ready screen: game controls, not a manual */
+.howto-tag { color: var(--muted); font-size: 18px; margin: 0 auto 22px; }
+.howto-tag b { color: var(--text); }
+.howto { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 0 auto 18px; max-width: 560px; }
+.ht { border-radius: var(--radius); padding: 18px 8px 14px; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.ht .ic { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.ht b { font-size: 18px; }
+.ht span { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.ht.flag { background: var(--bad-bg); } .ht.flag .ic { background: var(--bad); } .ht.flag b { color: var(--bad); }
+.ht.ok { background: var(--ok-bg); } .ht.ok .ic { background: var(--ok); } .ht.ok b { color: var(--ok); }
+.ht.agent { background: var(--panel-2); } .ht.agent .ic { background: var(--accent-2); } .ht.agent b { color: var(--accent-2); }
+.howto-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 22px; }
+.howto-chips span { background: var(--lav); color: var(--text); border-radius: 999px; padding: 6px 12px; font-size: 13.5px; font-weight: 600; }
+@media (max-width: 560px) { .howto { gap: 8px; } .ht { padding: 14px 4px 12px; } .ht .ic { width: 46px; height: 46px; font-size: 22px; } .ht b { font-size: 16px; } .ht span { font-size: 11px; } .howto-tag { font-size: 16px; } }

@@ -28,9 +28,10 @@ const CFG = {
   PRIVACY_URL: 'https://www.zyphe.com/privacy-policy',
   LEAD_SOURCE: 'SiGMA Rome 2026 · Carbonara Compliance',
   REQUIRE_MARKETING_CONSENT: true,
-  CONSENT_VERSION: '2026-11-rome-v1',
-  CONSENT_TERMS: 'I agree to the prize draw terms and to Zyphe processing my details to run the draw and contact the winner.',
-  CONSENT_MARKETING: 'I agree to receive information from Zyphe about its products, services and events by email and phone. I can unsubscribe at any time.',
+  CONSENT_VERSION: '2026-11-rome-v2',
+  CONSENT_TERMS: 'I agree to the prize draw terms and to Zyphe using my details to run the draw and to contact me about its products and events by email and phone. Unsubscribe anytime.',
+  // One checkbox covers both (since v2), so the stored marketing consent text is the same sentence.
+  get CONSENT_MARKETING() { return this.CONSENT_TERMS; },
   // Keep these lists identical to OPTIONS in web/app.js
   SEGMENTS: ['Online casino operator', 'Sportsbook / betting operator', 'Land-based casino', 'Lottery / bingo',
     'Payment provider / PSP', 'Fintech / bank / EMI', 'RegTech / compliance provider', 'Game studio / B2B platform supplier',
@@ -127,7 +128,7 @@ async function register(db, b, ip, ua) {
   else if (d.segment === 'Other' && !d.segmentOther) errs.segmentOther = 'Tell us what your company does';
   if (!CFG.PROVIDER_OPTIONS.includes(d.provider)) errs.provider = 'Pick an answer';
   if (!d.consentTerms) errs.consentTerms = 'You need to accept the terms to enter';
-  if (CFG.REQUIRE_MARKETING_CONSENT && !d.consentMarketing) errs.consentMarketing = 'Please agree to hear from Zyphe to enter';
+  else if (CFG.REQUIRE_MARKETING_CONSENT && !d.consentMarketing) errs.consentMarketing = 'Please agree to hear from Zyphe to enter';
   if (Object.keys(errs).length) return { ok: false, error: 'Please check the highlighted fields.', fields: errs };
 
   const id = await sha256(d.email), key = `leads/${id}`, now = new Date().toISOString();

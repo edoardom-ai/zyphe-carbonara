@@ -91,7 +91,6 @@
     $('#privacyLink').href = CFG.privacyUrl;
     if (CFG.consent) {
       $('#termsText').textContent = CFG.consent.terms.replace(/^I agree to the prize draw terms and/, '');
-      $('#marketingText').textContent = CFG.consent.marketing + (CFG.consent.marketingRequired ? ' *' : ' (Optional)');
     }
     $('#footPrivacy').innerHTML = `<a href="${CFG.privacyUrl}" target="_blank" rel="noopener">Privacy</a> · <a href="#" id="footTerms">Draw terms</a>`;
     $('#footTerms').onclick = e => { e.preventDefault(); show('s-terms'); };
@@ -158,7 +157,7 @@
       segment: val('segment'), segmentOther: val('segmentOther'),
       provider: val('provider'), providerName: /^Yes/.test(val('provider')) ? val('providerName') : '',
       needs: [...document.querySelectorAll('input[name=needs]:checked')].map(i => i.value).filter(v => v !== 'None of these'),
-      consentTerms: $('#consentTerms').checked, consentMarketing: $('#consentMarketing').checked,
+      consentTerms: $('#consentTerms').checked, consentMarketing: $('#consentTerms').checked,
     };
     const btn = $('#btnRegister'); btn.disabled = true; btn.textContent = 'Checking…';
     try {
