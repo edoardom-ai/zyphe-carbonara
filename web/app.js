@@ -284,8 +284,8 @@
       floatText('−200 · −3s', 'var(--bad)', flag);
       if (c.risky) { const li = el.querySelector(`li[data-k="${cssEsc(c.badKey)}"]`); if (li) li.classList.add('reveal-bad'); }
       if (c.risky) showAlert(c, false);
-      else toast('Mamma mia! That one was clean', 'bad');
-      G.missed.push(c.risky ? { t: c.title, r: c.reason, type: c.type } : { t: c.title, r: 'was clean (false positive)', type: c.type });
+      else toast(`Mamma mia! ${c.title} is correct: approve it`, 'bad');
+      G.missed.push(c.risky ? { kind: 'approved', t: c.title, r: c.reason, type: c.type } : { kind: 'flagged', t: c.title, type: c.type });
       try { navigator.vibrate && navigator.vibrate(120); } catch {}
     }
     updateHud();
@@ -420,7 +420,11 @@
     $('#resStreak').textContent = G.bestStreak;
     $('#resAgent').textContent = G.served;
     $('#resTitle').textContent = G.score >= 12000 ? '🏛️ Imperatore della Compliance' : G.score >= 7000 ? '🦅 Senatore MLRO' : G.score >= 3000 ? '🛡️ Centurione' : '🛵 Turista in Trastevere';
-    $('#resMissed').innerHTML = G.missed.slice(-4).map(m => `<li><b>${esc(m.type)}</b> ${esc(m.t)}: ${esc(m.r)}</li>`).join('');
+    const shown = G.missed.slice(-4);
+    $('#resMissed').innerHTML = shown.length ? `<li class="missed-head">Your mistakes${G.missed.length > shown.length ? ` (last ${shown.length} of ${G.missed.length})` : ''}</li>` +
+      shown.map(m => m.kind === 'flagged'
+        ? `<li><b>${esc(m.type)}</b> You flagged <strong>${esc(m.t)}</strong>, but it's correct: approve it.</li>`
+        : `<li><b>${esc(m.type)}</b> You approved <strong>${esc(m.t)}</strong>, but it should be flagged: ${esc(m.r)}</li>`).join('') : '';
     const manualSec = total ? (GAME_SECONDS / Math.max(1, total - G.agentRuns * 5)).toFixed(1) : '–';
     const creamIn = G.missed.filter(m => /Cream|Panna/.test(m.t)).length;
     $('#resPitch').innerHTML = `You served <b>${G.served} carbonara${G.served === 1 ? '' : 's'}</b> at <b>~${manualSec}s per case</b>` +
