@@ -17,7 +17,7 @@ body.screen-page { overflow: hidden; background: #fff;
 
 .s-head { grid-area: head; align-self: end; padding-top: 3vh; }
 .s-head .eyebrow { font-size: clamp(12px, 1.7vh, 19px); }
-.s-head h1 { font-size: clamp(40px, min(12vh, 6.4vw), 150px); line-height: .95; letter-spacing: -.055em; margin: 2vh 0 0; }
+.s-head h1 { font-size: clamp(40px, min(11.4vh, 6.2vw), 146px); line-height: 1.1; letter-spacing: -.05em; margin: 1.4vh 0 0; }
 .s-head h1 .l2 { white-space: nowrap; }
 .s-head h1 em { font-style: normal; color: var(--accent); }
 
