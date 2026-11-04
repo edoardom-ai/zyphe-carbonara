@@ -278,3 +278,5 @@ footer { margin-top: 28px; padding-top: 14px; border-top: 1px solid var(--line);
 
 .missed li.missed-head { font-family: var(--mono); font-size: 11.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); border-bottom: 0; padding-bottom: 2px; }
 .missed li strong { color: var(--text); font-weight: 650; }
+
+.board li.empty::before { content: none; }
