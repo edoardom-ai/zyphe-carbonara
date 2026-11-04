@@ -8,6 +8,11 @@
   node_bundler = "esbuild"
 
 [[redirects]]
+  from = "/screen"
+  to = "/screen.html"
+  status = 200
+
+[[redirects]]
   from = "/leaderboard"
   to = "/leaderboard.html"
   status = 200

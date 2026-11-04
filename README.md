@@ -33,6 +33,7 @@ From now on, every change pushed to `main` deploys automatically. Drag-and-drop 
 | `/` | The game (people play on their phones via the QR code) |
 | `/?kiosk=1` | Booth tablets: nothing is remembered between players, "Next player" button, auto-reset |
 | `/leaderboard` | Booth TV: refreshes live and shows the winner after the draw |
+| `/screen` | Stand screen / poster: "Play to win an iPhone Duo" with a big QR code. Full-screen it on a monitor (F11), or print it. Add `web/prize.png` to replace the drawing with a photo of the real prize |
 | `/admin.html` | Your team: stats, lead table, CSV export, disqualify, prize draw, delete test data (password = `ADMIN_PASSWORD`) |
 
 ## Rules the API enforces
