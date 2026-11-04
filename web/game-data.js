@@ -29,6 +29,7 @@
   const KEYS = Object.keys(AUTHENTIC);
   const PALETTE = ['#4fd1ff', '#b18cff', '#ffc857', '#2ee6a6', '#ff9f6e', '#8ab4ff', '#f78fd6'];
   const WARMUP_WRONG = 7;   // wrong ingredients mixed into the opening, next to every real warm-up ingredient
+  const INGREDIENTS_FIRST = 12; // the first 12 cards are always recipe (KYC ingredient) questions; suppliers and diners start at card 13
   const P_APPROVE = 0.45;   // after the warm-up: share of cases that should be approved
   const TYPE_WEIGHT = { KYC: 0.65, KYB: 0.15, AML: 0.2 };
 
@@ -74,7 +75,7 @@
     const real = [], seen = new Set();
     for (const q of shuffle(pool.filter(q => q.answer === 'approve'))) { const k = q.ingredient || q.id; if (!seen.has(k)) { seen.add(k); real.push(q); } }
     const wrong = shuffle(pool.filter(q => q.answer === 'flag')).slice(0, WARMUP_WRONG);
-    return shuffle(real.concat(wrong));
+    return shuffle(real.concat(wrong)).slice(0, INGREDIENTS_FIRST);
   }
 
   window.ZyCases = {
@@ -90,6 +91,12 @@
       const n = dealt++;
       if (n === 0) deck = buildWarmup();
       if (n < deck.length) return toCase(deck[n]);
+      if (n < INGREDIENTS_FIRST) { // warm-up pool too small: top up with other ingredient questions
+        const kyc = all.filter(q => q.type === 'KYC'), want = Math.random() < P_APPROVE ? 'approve' : 'flag';
+        const pool = kyc.filter(q => q.answer === want);
+        const q = fromBag('kyc-top-' + want, pool.length ? pool : kyc) || fromBag('any', all);
+        return toCase(q);
+      }
 
       // pot nudge: sometimes serve the missing real ingredient
       if (needKey && Math.random() < 0.3) {
