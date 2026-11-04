@@ -42,6 +42,21 @@
     { name: 'Parsley', emoji: '🌿', origin: 'Garden, Lazio', cert: 'Fresh · verified' },
     { name: 'Pineapple', emoji: '🍍', origin: 'Hawaii, USA', cert: 'Ripe · verified' },
   ];
+  // ingredients that make no sense at all: easy flags that make people laugh
+  const ABSURD = [
+    { name: 'Nutella', emoji: '🍫', origin: 'Alba, Piemonte', cert: 'Hazelnut spread · verified' },
+    { name: 'Gummy bears', emoji: '🍬', origin: 'Bonn, Germany', cert: 'Assorted flavours · verified' },
+    { name: 'Ketchup', emoji: '🥫', origin: 'Pittsburgh, USA', cert: 'Tomato · verified' },
+    { name: 'Sushi', emoji: '🍣', origin: 'Tokyo, Japan', cert: 'Fresh salmon · verified' },
+    { name: 'Marshmallows', emoji: '🍡', origin: 'Campfire, USA', cert: 'Extra fluffy · verified' },
+    { name: 'Banana', emoji: '🍌', origin: 'Ecuador', cert: 'Ripe · verified' },
+    { name: 'Popcorn', emoji: '🍿', origin: 'Cinema, Roma', cert: 'Salted · verified' },
+    { name: 'Peanut butter', emoji: '🥜', origin: 'Georgia, USA', cert: 'Crunchy · verified' },
+    { name: 'Pickles', emoji: '🥒', origin: 'Gdańsk, Poland', cert: 'Dill · verified' },
+    { name: 'Ice cream', emoji: '🍦', origin: 'Gelateria, Trastevere', cert: 'Pistachio · verified' },
+    { name: 'Chocolate sprinkles', emoji: '🍫', origin: 'Amsterdam, Netherlands', cert: 'Hagelslag · verified' },
+    { name: 'Pineapple pizza', emoji: '🍕', origin: 'Hawaii, USA', cert: 'Controversial · verified' },
+  ];
 
   const FIRST = ['Luca', 'Sofia', 'Matteo', 'Giulia', 'Marco', 'Chiara', 'Lorenzo', 'Francesca', 'Alessandro', 'Elena', 'Davide',
     'Martina', 'Emma', 'Noah', 'Lars', 'Yuki', 'Kwame', 'Priya', 'Omar', 'Freya', 'Andrei', 'Camila', 'Nikos', 'Maja'];
@@ -60,9 +75,9 @@
   const person = () => ({ first: pick(FIRST), last: pick(LAST) });
 
   // ---------- KYC: ingredients ----------
-  function ingredient(needKey) {
-    if (Math.random() < 0.38) return impostor();
-    const key = needKey && Math.random() < 0.55 ? needKey : pick(KEYS);
+  function ingredient(needKey, forceKey, forceClean) {
+    if (!forceKey && Math.random() < 0.36) return impostor();
+    const key = forceKey || (needKey && Math.random() < 0.6 ? needKey : pick(KEYS));
     const a = AUTHENTIC[key];
     const name = a.alt ? pick(a.alt) : a.name;
     const f = { 'Name on label': name, Origin: pick(a.origin), Certificate: a.cert, 'Best before': future(), Screening: 'No hits on Nonna\'s list' };
@@ -91,13 +106,14 @@
       ],
     }[key];
     const generic = [() => { f.Screening = pick(['Match: Nonna\'s watchlist', 'Match: Roman sanctions list']); return ['Screening', 'L2', 'Sanctions hit', `${f.Screening.replace('Match: ', '')} · Match score ${rnd(91, 99)}%`]; }];
-    const c = build('KYC', name, 'Applying to join the carbonara', a.emoji, f, risks.concat(generic), 0.3);
+    const c = build('KYC', name, 'Applying to join the carbonara', a.emoji, f, risks.concat(generic), forceClean ? 0 : 0.14);
     c.ingredient = c.risky ? null : key;
     c.emojiAvatar = true;
     return c;
   }
-  function impostor() {
-    const im = pick(IMPOSTORS);
+  function impostor(absurdOnly) {
+    // mostly nonsense ingredients (easy), sometimes a plausible wrong one (pancetta, parmigiano, cream…)
+    const im = absurdOnly || Math.random() < 0.6 ? pick(ABSURD) : pick(IMPOSTORS);
     const f = { 'Name on label': im.name, Origin: im.origin, Certificate: im.cert, 'Best before': future(), Screening: 'No hits on Nonna\'s list' };
     const alert = im.sub
       ? { level: 'L1', rule: 'Ingredient substitution', detail: `${im.name} · Not on the approved recipe · Closest approved match: ${im.sub} (${rnd(62, 81)}%)` }
@@ -161,13 +177,20 @@
       fields: Object.entries(f).map(([k, v]) => ({ k, v, bad: k === badKey })) };
   }
 
-  let last = '';
+  let last = '', dealt = 0;
   window.ZyCases = {
     AUTHENTIC, KEYS,
+    /** call at the start of every game: restarts the warm-up sequence */
+    reset() { dealt = 0; last = ''; },
     /** needKey: an ingredient still missing from the pot, so the generator nudges it in */
     next(needKey) {
+      // Warm-up: the first five cards are the real recipe, all clean, in order (one carbonara served),
+      // then one ingredient that makes no sense, so players learn both buttons in the first seconds.
+      const n = dealt++;
+      if (n < KEYS.length) return ingredient(null, KEYS[n], true);
+      if (n === KEYS.length) return impostor(true);
       const r = Math.random();
-      let t = r < 0.5 ? 'KYC' : r < 0.75 ? 'KYB' : 'AML';
+      let t = r < 0.65 ? 'KYC' : r < 0.8 ? 'KYB' : 'AML';
       if (t === last && t !== 'KYC' && Math.random() < 0.5) t = 'KYC';
       last = t;
       return t === 'KYC' ? ingredient(needKey) : t === 'KYB' ? supplier() : diner();

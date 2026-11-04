@@ -120,7 +120,7 @@
     if (player) return goHowTo();
     if (!CFG) { $('#btnStart').textContent = 'Loading…'; await ensureConfig(); $('#btnStart').textContent = 'Play now →'; }
     $('#formError').textContent = CFG ? '' : 'Can\'t reach the game server. Check your connection and try again.';
-    show('s-register'); setTimeout(() => $('#firstName').focus(), 50);
+    show('s-register'); setTimeout(() => { const a = document.activeElement; if (!a || a === document.body || a.id === 'btnStart') $('#firstName').focus(); }, 50); // never steal focus from a field the user already picked
   };
   $('#btnBackHome').onclick = () => show('s-home');
   $('#termsLink').onclick = e => { e.preventDefault(); show('s-terms'); };
@@ -190,6 +190,7 @@
   const arena = $('#arena');
 
   function resetGame() {
+    ZyCases.reset();
     Object.assign(G, {
       running: false, score: 0, correct: 0, wrong: 0, streak: 0, bestStreak: 0, agentCharge: 0, agentRuns: 0,
       agentBusy: false, locked: false, current: null, el: null, endAt: 0, missed: [], raf: 0, pot: new Set(), served: 0,
@@ -423,7 +424,7 @@
       if (r.alreadyPlayed) { $('#resScore').textContent = r.bestScore.toLocaleString(); player.bestScore = r.bestScore; store.set(player); }
       $('#resBest').textContent = r.alreadyPlayed ? `You had already played: your first game (${r.bestScore.toLocaleString()}) is the one that counts${r.rank ? ` · rank #${r.rank}` : ''}.` : (r.rank ? `Rank #${r.rank} on the leaderboard` : '');
       if (r.eligible) $('#resEnteredTxt').innerHTML = `<b>You're in the draw for the ${esc(CFG ? CFG.prize : 'iPhone')}!</b><br><span class="hint">One game and one entry per person. Good luck!</span>`;
-      else { $('#resEntered').classList.add('no'); $('#resEnteredTxt').innerHTML = CFG && !CFG.open ? 'Entries are closed, but thanks for playing!' : 'Thanks for playing! (Zyphe team members aren\'t eligible for the draw.)'; }
+      else { $('#resEntered').classList.add('no'); $('#resEnteredTxt').innerHTML = CFG && !CFG.open ? 'Entries are closed, but thanks for playing!' : 'Thanks for playing!'; }
       renderBoard(r.leaderboard, r.bestScore);
     } catch (err) {
       if (err.status === 401) { store.clear(); player = null; }
