@@ -59,9 +59,9 @@
   // ---------- init ----------
   async function init() {
     buildForm();
+    await Promise.all([ZyCases.load(), ensureConfig()]); // question bank + event config
     renderCase($('#demoCase'), ZyCases.next());
     document.querySelectorAll('.demo-stack .case:not(#demoCase)').forEach(el => renderCase(el, ZyCases.next()));
-    await ensureConfig(); // also warms up the Apps Script backend
     player = store.get();
     if (player && player.played) $('#btnStart').textContent = `See your result, ${player.firstName} →`;
     else if (player) $('#btnStart').textContent = `Play now, ${player.firstName} →`;
@@ -203,6 +203,7 @@
 
   async function startGame() {
     if (!player || player.played) return showAlreadyPlayed(player ? player.bestScore : 0);
+    if (!ZyCases.ready) await ZyCases.load();
     resetGame();
     show('s-game');
     await countdown();

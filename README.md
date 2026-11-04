@@ -35,6 +35,7 @@ From now on, every change pushed to `main` deploys automatically. Drag-and-drop 
 | `/leaderboard` | Booth TV: refreshes live and shows the winner after the draw |
 | `/screen` | Stand screen / poster: "Play to win an iPhone Duo" with a big QR code. Full-screen it on a monitor (F11), or print it. Add `web/prize.png` to replace the drawing with a photo of the real prize |
 | `/admin.html` | Your team: stats, lead table, CSV export, disqualify, prize draw, delete test data (password = `ADMIN_PASSWORD`) |
+| `/admin-questions.html` | **Question bank**: every question in the game. Add, edit, duplicate, delete, switch on/off, choose the correct answer, the alert level (L1/L2/L3), rule and evidence, and which ingredients can appear in the opening. Same password |
 
 ## Rules the API enforces
 - One entry per email address. Re-registering with the same email keeps the original details.
@@ -60,7 +61,7 @@ earlier winners. Before the close it refuses unless you tick "draw anyway", whic
 ## Changing things
 - Event settings (prize, close time, consent wording, dropdown lists, staff domain): the `CFG` block at the top of
   `netlify/functions/api.mjs`. The dropdown lists must match `OPTIONS` in `web/app.js`.
-- Game content (cases, red flags, L1/L2 alerts, and the `WARMUP` list of ingredients every game starts with): `web/game-data.js`. Brand colours: `web/styles.css`.
+- Questions: edit them on `/admin-questions.html` (saved in Netlify Blobs, live from the next game). The defaults are in `web/questions-default.json`; **Restore defaults** goes back to them. How a game picks questions (warm-up of all real ingredients + 7 random wrong ones, then a shuffled mix) is in `web/game-data.js`. Brand colours: `web/styles.css`.
 - Edit a file on github.com (pencil icon → Commit changes) and Netlify redeploys within a minute.
 
 ## Files

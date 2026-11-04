@@ -1,0 +1,2865 @@
+{
+ "version": 1,
+ "questions": [
+  {
+   "id": "kyc-001",
+   "type": "KYC",
+   "title": "Guanciale",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🥓",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Guanciale"
+    },
+    {
+     "k": "Origin",
+     "v": "Amatrice, Lazio"
+    },
+    {
+     "k": "Certificate",
+     "v": "Cured pork cheek · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "approve",
+   "level": "",
+   "rule": "",
+   "detail": "",
+   "flagField": "",
+   "ingredient": "guanciale",
+   "warmup": true,
+   "enabled": true
+  },
+  {
+   "id": "kyc-002",
+   "type": "KYC",
+   "title": "Guanciale",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🥓",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Guanciale"
+    },
+    {
+     "k": "Origin",
+     "v": "Norcia, Umbria"
+    },
+    {
+     "k": "Certificate",
+     "v": "Cured pork cheek · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "approve",
+   "level": "",
+   "rule": "",
+   "detail": "",
+   "flagField": "",
+   "ingredient": "guanciale",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-003",
+   "type": "KYC",
+   "title": "Pecorino Romano",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🧀",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Pecorino Romano"
+    },
+    {
+     "k": "Origin",
+     "v": "Lazio"
+    },
+    {
+     "k": "Certificate",
+     "v": "DOP · consortium verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "approve",
+   "level": "",
+   "rule": "",
+   "detail": "",
+   "flagField": "",
+   "ingredient": "pecorino",
+   "warmup": true,
+   "enabled": true
+  },
+  {
+   "id": "kyc-004",
+   "type": "KYC",
+   "title": "Pecorino Romano",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🧀",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Pecorino Romano"
+    },
+    {
+     "k": "Origin",
+     "v": "Grosseto, Toscana"
+    },
+    {
+     "k": "Certificate",
+     "v": "DOP · consortium verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "approve",
+   "level": "",
+   "rule": "",
+   "detail": "",
+   "flagField": "",
+   "ingredient": "pecorino",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-005",
+   "type": "KYC",
+   "title": "Egg yolks only",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🥚",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Egg yolks only"
+    },
+    {
+     "k": "Origin",
+     "v": "Free-range farm, Lazio"
+    },
+    {
+     "k": "Certificate",
+     "v": "Grade A · fresh"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "approve",
+   "level": "",
+   "rule": "",
+   "detail": "",
+   "flagField": "",
+   "ingredient": "uova",
+   "warmup": true,
+   "enabled": true
+  },
+  {
+   "id": "kyc-006",
+   "type": "KYC",
+   "title": "Egg yolks only",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🥚",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Egg yolks only"
+    },
+    {
+     "k": "Origin",
+     "v": "Viterbo, Lazio"
+    },
+    {
+     "k": "Certificate",
+     "v": "Grade A · fresh"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "approve",
+   "level": "",
+   "rule": "",
+   "detail": "",
+   "flagField": "",
+   "ingredient": "uova",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-007",
+   "type": "KYC",
+   "title": "Black pepper",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🫙",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Black pepper"
+    },
+    {
+     "k": "Origin",
+     "v": "Kerala, India"
+    },
+    {
+     "k": "Certificate",
+     "v": "Freshly ground"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "approve",
+   "level": "",
+   "rule": "",
+   "detail": "",
+   "flagField": "",
+   "ingredient": "pepe",
+   "warmup": true,
+   "enabled": true
+  },
+  {
+   "id": "kyc-008",
+   "type": "KYC",
+   "title": "Black pepper",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🫙",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Black pepper"
+    },
+    {
+     "k": "Origin",
+     "v": "Sarawak, Malaysia"
+    },
+    {
+     "k": "Certificate",
+     "v": "Freshly ground"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "approve",
+   "level": "",
+   "rule": "",
+   "detail": "",
+   "flagField": "",
+   "ingredient": "pepe",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-009",
+   "type": "KYC",
+   "title": "Rigatoni",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🍝",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Rigatoni"
+    },
+    {
+     "k": "Origin",
+     "v": "Gragnano, Campania"
+    },
+    {
+     "k": "Certificate",
+     "v": "Bronze-drawn · IGP"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "approve",
+   "level": "",
+   "rule": "",
+   "detail": "",
+   "flagField": "",
+   "ingredient": "pasta",
+   "warmup": true,
+   "enabled": true
+  },
+  {
+   "id": "kyc-010",
+   "type": "KYC",
+   "title": "Spaghetti",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🍝",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Spaghetti"
+    },
+    {
+     "k": "Origin",
+     "v": "Gragnano, Campania"
+    },
+    {
+     "k": "Certificate",
+     "v": "Bronze-drawn · IGP"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "approve",
+   "level": "",
+   "rule": "",
+   "detail": "",
+   "flagField": "",
+   "ingredient": "pasta",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-011",
+   "type": "KYC",
+   "title": "Tonnarelli",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🍝",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Tonnarelli"
+    },
+    {
+     "k": "Origin",
+     "v": "Roma, Lazio"
+    },
+    {
+     "k": "Certificate",
+     "v": "Fresh egg pasta · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "approve",
+   "level": "",
+   "rule": "",
+   "detail": "",
+   "flagField": "",
+   "ingredient": "pasta",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-012",
+   "type": "KYC",
+   "title": "Mezze maniche",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🍝",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Mezze maniche"
+    },
+    {
+     "k": "Origin",
+     "v": "Gragnano, Campania"
+    },
+    {
+     "k": "Certificate",
+     "v": "Bronze-drawn · IGP"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "approve",
+   "level": "",
+   "rule": "",
+   "detail": "",
+   "flagField": "",
+   "ingredient": "pasta",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-013",
+   "type": "KYC",
+   "title": "Guanciale",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🥓",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Pancetta affumicata"
+    },
+    {
+     "k": "Origin",
+     "v": "Amatrice, Lazio"
+    },
+    {
+     "k": "Certificate",
+     "v": "Cured pork cheek · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L1",
+   "rule": "Identity mismatch",
+   "detail": "Declared: Guanciale · On label: Pancetta affumicata",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-014",
+   "type": "KYC",
+   "title": "Guanciale",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🥓",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Guanciale"
+    },
+    {
+     "k": "Origin",
+     "v": "Ohio, USA"
+    },
+    {
+     "k": "Certificate",
+     "v": "Cured pork cheek · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L1",
+   "rule": "Origin mismatch",
+   "detail": "Origin: Ohio, USA · Expected: Lazio / Umbria",
+   "flagField": "Origin",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-015",
+   "type": "KYC",
+   "title": "Guanciale",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🥓",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Guanciale"
+    },
+    {
+     "k": "Origin",
+     "v": "Roma, Lazio"
+    },
+    {
+     "k": "Certificate",
+     "v": "Cured pork cheek · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "Match: Nonna's watchlist"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Sanctions hit",
+   "detail": "Nonna's watchlist · Match score 97%",
+   "flagField": "Screening",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-016",
+   "type": "KYC",
+   "title": "Pecorino Romano",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🧀",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Pecorino Romano"
+    },
+    {
+     "k": "Origin",
+     "v": "Wisconsin, USA"
+    },
+    {
+     "k": "Certificate",
+     "v": "DOP · consortium verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Forged certificate",
+   "detail": "DOP claimed · Origin Wisconsin, USA is outside the DOP area",
+   "flagField": "Origin",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-017",
+   "type": "KYC",
+   "title": "Pecorino Romano",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🧀",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Pecorino Romano"
+    },
+    {
+     "k": "Origin",
+     "v": "Lazio"
+    },
+    {
+     "k": "Certificate",
+     "v": "DOP · certificate not found"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Document authenticity",
+   "detail": "DOP certificate not found in the consortium registry",
+   "flagField": "Certificate",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-018",
+   "type": "KYC",
+   "title": "Pecorino Romano",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🧀",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Parmigiano"
+    },
+    {
+     "k": "Origin",
+     "v": "Lazio"
+    },
+    {
+     "k": "Certificate",
+     "v": "DOP · consortium verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L1",
+   "rule": "Identity mismatch",
+   "detail": "Declared: Pecorino Romano · On label: Parmigiano",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-019",
+   "type": "KYC",
+   "title": "Egg yolks only",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🥚",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Egg yolks only"
+    },
+    {
+     "k": "Origin",
+     "v": "Free-range farm, Lazio"
+    },
+    {
+     "k": "Certificate",
+     "v": "Grade A · fresh"
+    },
+    {
+     "k": "Best before",
+     "v": "3 weeks ago"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L1",
+   "rule": "Expired document",
+   "detail": "Best before: 3 weeks ago",
+   "flagField": "Best before",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-020",
+   "type": "KYC",
+   "title": "Black pepper",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🫙",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Black pepper"
+    },
+    {
+     "k": "Origin",
+     "v": "Kerala, India"
+    },
+    {
+     "k": "Certificate",
+     "v": "Pre-ground in 2019"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L1",
+   "rule": "Stale credentials",
+   "detail": "Ground in 2019 · Freshly ground required",
+   "flagField": "Certificate",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-021",
+   "type": "KYC",
+   "title": "Black pepper",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🫙",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Paprika"
+    },
+    {
+     "k": "Origin",
+     "v": "Kerala, India"
+    },
+    {
+     "k": "Certificate",
+     "v": "Freshly ground"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L1",
+   "rule": "Identity mismatch",
+   "detail": "Declared: Black pepper · On label: Paprika",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-022",
+   "type": "KYC",
+   "title": "Spaghetti",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🍝",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Spaghetti"
+    },
+    {
+     "k": "Origin",
+     "v": "Gragnano, Campania"
+    },
+    {
+     "k": "Certificate",
+     "v": "Overcooked · 14 minutes"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L1",
+   "rule": "Due diligence failed",
+   "detail": "Cooking time 14 min · Al dente limit exceeded",
+   "flagField": "Certificate",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-023",
+   "type": "KYC",
+   "title": "Rigatoni",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🍝",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Farfalle"
+    },
+    {
+     "k": "Origin",
+     "v": "Gragnano, Campania"
+    },
+    {
+     "k": "Certificate",
+     "v": "Bronze-drawn · IGP"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L1",
+   "rule": "Identity mismatch",
+   "detail": "Declared: Rigatoni · On label: Farfalle",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-024",
+   "type": "KYC",
+   "title": "Pancetta",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🥓",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Pancetta"
+    },
+    {
+     "k": "Origin",
+     "v": "Piacenza, Emilia-Romagna"
+    },
+    {
+     "k": "Certificate",
+     "v": "Cured pork belly · DOP"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L1",
+   "rule": "Ingredient substitution",
+   "detail": "Pancetta · Not on the approved recipe · Closest approved match: Guanciale",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": true,
+   "enabled": true
+  },
+  {
+   "id": "kyc-025",
+   "type": "KYC",
+   "title": "Bacon",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🥓",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Bacon"
+    },
+    {
+     "k": "Origin",
+     "v": "Cork, Ireland"
+    },
+    {
+     "k": "Certificate",
+     "v": "Smoked pork belly · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L1",
+   "rule": "Ingredient substitution",
+   "detail": "Bacon · Not on the approved recipe · Closest approved match: Guanciale",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": true,
+   "enabled": true
+  },
+  {
+   "id": "kyc-026",
+   "type": "KYC",
+   "title": "Prosciutto cotto",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🍖",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Prosciutto cotto"
+    },
+    {
+     "k": "Origin",
+     "v": "Parma, Emilia-Romagna"
+    },
+    {
+     "k": "Certificate",
+     "v": "Cooked ham · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L1",
+   "rule": "Ingredient substitution",
+   "detail": "Prosciutto cotto · Not on the approved recipe · Closest approved match: Guanciale",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-027",
+   "type": "KYC",
+   "title": "Parmigiano",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🧀",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Parmigiano"
+    },
+    {
+     "k": "Origin",
+     "v": "Parma, Emilia-Romagna"
+    },
+    {
+     "k": "Certificate",
+     "v": "DOP · consortium verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L1",
+   "rule": "Ingredient substitution",
+   "detail": "Parmigiano · Not on the approved recipe · Closest approved match: Pecorino Romano",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": true,
+   "enabled": true
+  },
+  {
+   "id": "kyc-028",
+   "type": "KYC",
+   "title": "Pecorino Sardo",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🧀",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Pecorino Sardo"
+    },
+    {
+     "k": "Origin",
+     "v": "Sardegna"
+    },
+    {
+     "k": "Certificate",
+     "v": "DOP · consortium verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L1",
+   "rule": "Ingredient substitution",
+   "detail": "Pecorino Sardo · Not on the approved recipe · Closest approved match: Pecorino Romano",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": true,
+   "enabled": true
+  },
+  {
+   "id": "kyc-029",
+   "type": "KYC",
+   "title": "Grana Padano",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🧀",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Grana Padano"
+    },
+    {
+     "k": "Origin",
+     "v": "Lodi, Lombardia"
+    },
+    {
+     "k": "Certificate",
+     "v": "DOP · consortium verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L1",
+   "rule": "Ingredient substitution",
+   "detail": "Grana Padano · Not on the approved recipe · Closest approved match: Pecorino Romano",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": true,
+   "enabled": true
+  },
+  {
+   "id": "kyc-030",
+   "type": "KYC",
+   "title": "Cheddar",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🧀",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Cheddar"
+    },
+    {
+     "k": "Origin",
+     "v": "Somerset, UK"
+    },
+    {
+     "k": "Certificate",
+     "v": "Mature · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L1",
+   "rule": "Ingredient substitution",
+   "detail": "Cheddar · Not on the approved recipe · Closest approved match: Pecorino Romano",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-031",
+   "type": "KYC",
+   "title": "Egg whites",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🥚",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Egg whites"
+    },
+    {
+     "k": "Origin",
+     "v": "Free-range farm, Lazio"
+    },
+    {
+     "k": "Certificate",
+     "v": "Grade A · fresh"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L1",
+   "rule": "Ingredient substitution",
+   "detail": "Egg whites · Not on the approved recipe · Closest approved match: Egg yolks only",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": true,
+   "enabled": true
+  },
+  {
+   "id": "kyc-032",
+   "type": "KYC",
+   "title": "Pepperoni",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🍕",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Pepperoni"
+    },
+    {
+     "k": "Origin",
+     "v": "New Jersey, USA"
+    },
+    {
+     "k": "Certificate",
+     "v": "Spicy salami · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L1",
+   "rule": "Ingredient substitution",
+   "detail": "Pepperoni · Not on the approved recipe · Closest approved match: Black pepper",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": true,
+   "enabled": true
+  },
+  {
+   "id": "kyc-033",
+   "type": "KYC",
+   "title": "Chili pepper",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🌶️",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Chili pepper"
+    },
+    {
+     "k": "Origin",
+     "v": "Calabria"
+    },
+    {
+     "k": "Certificate",
+     "v": "Fresh · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L1",
+   "rule": "Ingredient substitution",
+   "detail": "Chili pepper · Not on the approved recipe · Closest approved match: Black pepper",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": true,
+   "enabled": true
+  },
+  {
+   "id": "kyc-034",
+   "type": "KYC",
+   "title": "White pepper",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🫙",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "White pepper"
+    },
+    {
+     "k": "Origin",
+     "v": "Kampot, Cambodia"
+    },
+    {
+     "k": "Certificate",
+     "v": "Freshly ground"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L1",
+   "rule": "Ingredient substitution",
+   "detail": "White pepper · Not on the approved recipe · Closest approved match: Black pepper",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-035",
+   "type": "KYC",
+   "title": "Panna (cream)",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🥛",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Panna (cream)"
+    },
+    {
+     "k": "Origin",
+     "v": "Dairy farm, Lombardia"
+    },
+    {
+     "k": "Certificate",
+     "v": "Fresh · 35% fat"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Prohibited ingredient",
+   "detail": "Panna (cream) · On the restricted list for carbonara",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": true,
+   "enabled": true
+  },
+  {
+   "id": "kyc-036",
+   "type": "KYC",
+   "title": "Milk",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🥛",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Milk"
+    },
+    {
+     "k": "Origin",
+     "v": "Dairy farm, Lombardia"
+    },
+    {
+     "k": "Certificate",
+     "v": "Whole · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Prohibited ingredient",
+   "detail": "Milk · On the restricted list for carbonara",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": true,
+   "enabled": true
+  },
+  {
+   "id": "kyc-037",
+   "type": "KYC",
+   "title": "Onion",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🧅",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Onion"
+    },
+    {
+     "k": "Origin",
+     "v": "Tropea, Calabria"
+    },
+    {
+     "k": "Certificate",
+     "v": "IGP · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Prohibited ingredient",
+   "detail": "Onion · On the restricted list for carbonara",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": true,
+   "enabled": true
+  },
+  {
+   "id": "kyc-038",
+   "type": "KYC",
+   "title": "Garlic",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🧄",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Garlic"
+    },
+    {
+     "k": "Origin",
+     "v": "Sulmona, Abruzzo"
+    },
+    {
+     "k": "Certificate",
+     "v": "Red garlic · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Prohibited ingredient",
+   "detail": "Garlic · On the restricted list for carbonara",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": true,
+   "enabled": true
+  },
+  {
+   "id": "kyc-039",
+   "type": "KYC",
+   "title": "Butter",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🧈",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Butter"
+    },
+    {
+     "k": "Origin",
+     "v": "Normandie, France"
+    },
+    {
+     "k": "Certificate",
+     "v": "AOP · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Prohibited ingredient",
+   "detail": "Butter · On the restricted list for carbonara",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-040",
+   "type": "KYC",
+   "title": "Peas",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🫛",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Peas"
+    },
+    {
+     "k": "Origin",
+     "v": "Frozen, EU"
+    },
+    {
+     "k": "Certificate",
+     "v": "Grade A · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Prohibited ingredient",
+   "detail": "Peas · On the restricted list for carbonara",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-041",
+   "type": "KYC",
+   "title": "Mushrooms",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🍄",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Mushrooms"
+    },
+    {
+     "k": "Origin",
+     "v": "Champignon farm, Veneto"
+    },
+    {
+     "k": "Certificate",
+     "v": "Fresh · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Prohibited ingredient",
+   "detail": "Mushrooms · On the restricted list for carbonara",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-042",
+   "type": "KYC",
+   "title": "Parsley",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🌿",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Parsley"
+    },
+    {
+     "k": "Origin",
+     "v": "Garden, Lazio"
+    },
+    {
+     "k": "Certificate",
+     "v": "Fresh · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Prohibited ingredient",
+   "detail": "Parsley · On the restricted list for carbonara",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-043",
+   "type": "KYC",
+   "title": "Avocado",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🥑",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Avocado"
+    },
+    {
+     "k": "Origin",
+     "v": "Michoacán, Mexico"
+    },
+    {
+     "k": "Certificate",
+     "v": "Ripe · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Prohibited ingredient",
+   "detail": "Avocado · On the restricted list for carbonara",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": true,
+   "enabled": true
+  },
+  {
+   "id": "kyc-044",
+   "type": "KYC",
+   "title": "Pineapple",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🍍",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Pineapple"
+    },
+    {
+     "k": "Origin",
+     "v": "Hawaii, USA"
+    },
+    {
+     "k": "Certificate",
+     "v": "Ripe · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Prohibited ingredient",
+   "detail": "Pineapple · On the restricted list for carbonara",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": true,
+   "enabled": true
+  },
+  {
+   "id": "kyc-045",
+   "type": "KYC",
+   "title": "Nutella",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🍫",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Nutella"
+    },
+    {
+     "k": "Origin",
+     "v": "Alba, Piemonte"
+    },
+    {
+     "k": "Certificate",
+     "v": "Hazelnut spread · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Prohibited ingredient",
+   "detail": "Nutella · On the restricted list for carbonara",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": true,
+   "enabled": true
+  },
+  {
+   "id": "kyc-046",
+   "type": "KYC",
+   "title": "Ketchup",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🥫",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Ketchup"
+    },
+    {
+     "k": "Origin",
+     "v": "Pittsburgh, USA"
+    },
+    {
+     "k": "Certificate",
+     "v": "Tomato · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Prohibited ingredient",
+   "detail": "Ketchup · On the restricted list for carbonara",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": true,
+   "enabled": true
+  },
+  {
+   "id": "kyc-047",
+   "type": "KYC",
+   "title": "Gummy bears",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🍬",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Gummy bears"
+    },
+    {
+     "k": "Origin",
+     "v": "Bonn, Germany"
+    },
+    {
+     "k": "Certificate",
+     "v": "Assorted flavours · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Prohibited ingredient",
+   "detail": "Gummy bears · On the restricted list for carbonara",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-048",
+   "type": "KYC",
+   "title": "Sushi",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🍣",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Sushi"
+    },
+    {
+     "k": "Origin",
+     "v": "Tokyo, Japan"
+    },
+    {
+     "k": "Certificate",
+     "v": "Fresh salmon · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Prohibited ingredient",
+   "detail": "Sushi · On the restricted list for carbonara",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-049",
+   "type": "KYC",
+   "title": "Marshmallows",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🍡",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Marshmallows"
+    },
+    {
+     "k": "Origin",
+     "v": "Campfire, USA"
+    },
+    {
+     "k": "Certificate",
+     "v": "Extra fluffy · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Prohibited ingredient",
+   "detail": "Marshmallows · On the restricted list for carbonara",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-050",
+   "type": "KYC",
+   "title": "Banana",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🍌",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Banana"
+    },
+    {
+     "k": "Origin",
+     "v": "Ecuador"
+    },
+    {
+     "k": "Certificate",
+     "v": "Ripe · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Prohibited ingredient",
+   "detail": "Banana · On the restricted list for carbonara",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-051",
+   "type": "KYC",
+   "title": "Popcorn",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🍿",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Popcorn"
+    },
+    {
+     "k": "Origin",
+     "v": "Cinema, Roma"
+    },
+    {
+     "k": "Certificate",
+     "v": "Salted · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Prohibited ingredient",
+   "detail": "Popcorn · On the restricted list for carbonara",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-052",
+   "type": "KYC",
+   "title": "Peanut butter",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🥜",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Peanut butter"
+    },
+    {
+     "k": "Origin",
+     "v": "Georgia, USA"
+    },
+    {
+     "k": "Certificate",
+     "v": "Crunchy · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Prohibited ingredient",
+   "detail": "Peanut butter · On the restricted list for carbonara",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-053",
+   "type": "KYC",
+   "title": "Pickles",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🥒",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Pickles"
+    },
+    {
+     "k": "Origin",
+     "v": "Gdańsk, Poland"
+    },
+    {
+     "k": "Certificate",
+     "v": "Dill · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Prohibited ingredient",
+   "detail": "Pickles · On the restricted list for carbonara",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-054",
+   "type": "KYC",
+   "title": "Ice cream",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🍦",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Ice cream"
+    },
+    {
+     "k": "Origin",
+     "v": "Gelateria, Trastevere"
+    },
+    {
+     "k": "Certificate",
+     "v": "Pistachio · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Prohibited ingredient",
+   "detail": "Ice cream · On the restricted list for carbonara",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyc-055",
+   "type": "KYC",
+   "title": "Pineapple pizza",
+   "subtitle": "Applying to join the carbonara",
+   "avatar": "🍕",
+   "fields": [
+    {
+     "k": "Name on label",
+     "v": "Pineapple pizza"
+    },
+    {
+     "k": "Origin",
+     "v": "Hawaii, USA"
+    },
+    {
+     "k": "Certificate",
+     "v": "Controversial · verified"
+    },
+    {
+     "k": "Best before",
+     "v": "{future}"
+    },
+    {
+     "k": "Screening",
+     "v": "No hits on Nonna's list"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Prohibited ingredient",
+   "detail": "Pineapple pizza · On the restricted list for carbonara",
+   "flagField": "Name on label",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyb-056",
+   "type": "KYB",
+   "title": "Salumificio Tiberino Srl",
+   "subtitle": "Food supplier onboarding",
+   "avatar": "ST",
+   "fields": [
+    {
+     "k": "Registered",
+     "v": "Roma · active"
+    },
+    {
+     "k": "Ultimate owner",
+     "v": "Marco Rossi (100%)"
+    },
+    {
+     "k": "Directors",
+     "v": "2 verified · no hits"
+    },
+    {
+     "k": "Licence",
+     "v": "HACCP · valid"
+    }
+   ],
+   "answer": "approve",
+   "level": "",
+   "rule": "",
+   "detail": "",
+   "flagField": "",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyb-057",
+   "type": "KYB",
+   "title": "Caseificio Colosseo Srl",
+   "subtitle": "Food supplier onboarding",
+   "avatar": "CC",
+   "fields": [
+    {
+     "k": "Registered",
+     "v": "Roma · active"
+    },
+    {
+     "k": "Ultimate owner",
+     "v": "Giulia Bianchi (75%)"
+    },
+    {
+     "k": "Directors",
+     "v": "2 verified · no hits"
+    },
+    {
+     "k": "Licence",
+     "v": "HACCP · valid"
+    }
+   ],
+   "answer": "approve",
+   "level": "",
+   "rule": "",
+   "detail": "",
+   "flagField": "",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyb-058",
+   "type": "KYB",
+   "title": "Pastificio Trastevere Srl",
+   "subtitle": "Food supplier onboarding",
+   "avatar": "PT",
+   "fields": [
+    {
+     "k": "Registered",
+     "v": "Roma · active"
+    },
+    {
+     "k": "Ultimate owner",
+     "v": "Luca Romano (60%)"
+    },
+    {
+     "k": "Directors",
+     "v": "2 verified · no hits"
+    },
+    {
+     "k": "Licence",
+     "v": "HACCP · valid"
+    }
+   ],
+   "answer": "approve",
+   "level": "",
+   "rule": "",
+   "detail": "",
+   "flagField": "",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyb-059",
+   "type": "KYB",
+   "title": "Uova del Gianicolo Srl",
+   "subtitle": "Food supplier onboarding",
+   "avatar": "Ud",
+   "fields": [
+    {
+     "k": "Registered",
+     "v": "Viterbo · active"
+    },
+    {
+     "k": "Ultimate owner",
+     "v": "Sara Conti (100%)"
+    },
+    {
+     "k": "Directors",
+     "v": "2 verified · no hits"
+    },
+    {
+     "k": "Licence",
+     "v": "HACCP · valid"
+    }
+   ],
+   "answer": "approve",
+   "level": "",
+   "rule": "",
+   "detail": "",
+   "flagField": "",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyb-060",
+   "type": "KYB",
+   "title": "Gladiator Payments Srl",
+   "subtitle": "Payment provider onboarding",
+   "avatar": "GP",
+   "fields": [
+    {
+     "k": "Registered",
+     "v": "Malta · active"
+    },
+    {
+     "k": "Ultimate owner",
+     "v": "Davide Greco (51%)"
+    },
+    {
+     "k": "Directors",
+     "v": "2 verified · no hits"
+    },
+    {
+     "k": "Licence",
+     "v": "MGA B2B · valid"
+    }
+   ],
+   "answer": "approve",
+   "level": "",
+   "rule": "",
+   "detail": "",
+   "flagField": "",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyb-061",
+   "type": "KYB",
+   "title": "Aurelia Game Studio Srl",
+   "subtitle": "Game studio onboarding",
+   "avatar": "AG",
+   "fields": [
+    {
+     "k": "Registered",
+     "v": "Milano · active"
+    },
+    {
+     "k": "Ultimate owner",
+     "v": "Elena Ricci (100%)"
+    },
+    {
+     "k": "Directors",
+     "v": "2 verified · no hits"
+    },
+    {
+     "k": "Licence",
+     "v": "ADM B2B · valid"
+    }
+   ],
+   "answer": "approve",
+   "level": "",
+   "rule": "",
+   "detail": "",
+   "flagField": "",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyb-062",
+   "type": "KYB",
+   "title": "Lupa Affiliates Srl",
+   "subtitle": "Affiliate partner onboarding",
+   "avatar": "LA",
+   "fields": [
+    {
+     "k": "Registered",
+     "v": "Roma · active"
+    },
+    {
+     "k": "Ultimate owner",
+     "v": "Undisclosed: nominee shareholders"
+    },
+    {
+     "k": "Directors",
+     "v": "2 verified · no hits"
+    },
+    {
+     "k": "Licence",
+     "v": "ADM affiliate reg. · valid"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "UBO not identified",
+   "detail": "Ultimate owner: Undisclosed · nominee shareholders",
+   "flagField": "Ultimate owner",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyb-063",
+   "type": "KYB",
+   "title": "Spezie dell'Impero Srl",
+   "subtitle": "Food supplier onboarding",
+   "avatar": "Sd",
+   "fields": [
+    {
+     "k": "Registered",
+     "v": "Iran · active"
+    },
+    {
+     "k": "Ultimate owner",
+     "v": "Omar Haddad (100%)"
+    },
+    {
+     "k": "Directors",
+     "v": "2 verified · no hits"
+    },
+    {
+     "k": "Licence",
+     "v": "HACCP · valid"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "High-risk jurisdiction",
+   "detail": "Registered in Iran · FATF call-for-action list",
+   "flagField": "Registered",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyb-064",
+   "type": "KYB",
+   "title": "Forno Testaccio Srl",
+   "subtitle": "Food supplier onboarding",
+   "avatar": "FT",
+   "fields": [
+    {
+     "k": "Registered",
+     "v": "Roma · dissolved 2023"
+    },
+    {
+     "k": "Ultimate owner",
+     "v": "Paolo Gallo (100%)"
+    },
+    {
+     "k": "Directors",
+     "v": "2 verified · no hits"
+    },
+    {
+     "k": "Licence",
+     "v": "HACCP · valid"
+    }
+   ],
+   "answer": "flag",
+   "level": "L1",
+   "rule": "Registry check failed",
+   "detail": "Company status: dissolved in 2023",
+   "flagField": "Registered",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyb-065",
+   "type": "KYB",
+   "title": "Vini dei Castelli Srl",
+   "subtitle": "Food supplier onboarding",
+   "avatar": "Vd",
+   "fields": [
+    {
+     "k": "Registered",
+     "v": "Frascati · active"
+    },
+    {
+     "k": "Ultimate owner",
+     "v": "Anna Marino (100%)"
+    },
+    {
+     "k": "Directors",
+     "v": "1 director on OFAC SDN list"
+    },
+    {
+     "k": "Licence",
+     "v": "HACCP · valid"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Sanctions hit",
+   "detail": "Director matched on OFAC SDN list · Match score 96%",
+   "flagField": "Directors",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyb-066",
+   "type": "KYB",
+   "title": "Fontana Media Srl",
+   "subtitle": "Affiliate partner onboarding",
+   "avatar": "FM",
+   "fields": [
+    {
+     "k": "Registered",
+     "v": "Cyprus · active"
+    },
+    {
+     "k": "Ultimate owner",
+     "v": "6 layers of shells via BVI"
+    },
+    {
+     "k": "Directors",
+     "v": "2 verified · no hits"
+    },
+    {
+     "k": "Licence",
+     "v": "ADM affiliate reg. · valid"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Complex ownership structure",
+   "detail": "6 holding layers via BVI · UBO not reachable",
+   "flagField": "Ultimate owner",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "kyb-067",
+   "type": "KYB",
+   "title": "Tevere Pay Srl",
+   "subtitle": "Payment provider onboarding",
+   "avatar": "TP",
+   "fields": [
+    {
+     "k": "Registered",
+     "v": "Malta · active"
+    },
+    {
+     "k": "Ultimate owner",
+     "v": "Lars Andersen (100%)"
+    },
+    {
+     "k": "Directors",
+     "v": "2 verified · no hits"
+    },
+    {
+     "k": "Licence",
+     "v": "Revoked by regulator"
+    }
+   ],
+   "answer": "flag",
+   "level": "L1",
+   "rule": "Licence check failed",
+   "detail": "Licence: Revoked by regulator",
+   "flagField": "Licence",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "aml-068",
+   "type": "AML",
+   "title": "Table 4 · Giulia R.",
+   "subtitle": "Payment monitoring alert",
+   "avatar": "GR",
+   "fields": [
+    {
+     "k": "Customer",
+     "v": "Regular since 2019 · lives in Monti"
+    },
+    {
+     "k": "Bill",
+     "v": "€44 · 2 carbonaras + dessert"
+    },
+    {
+     "k": "Payment",
+     "v": "Visa · own name"
+    },
+    {
+     "k": "Location",
+     "v": "Dining in · Monti, Roma"
+    }
+   ],
+   "answer": "approve",
+   "level": "",
+   "rule": "",
+   "detail": "",
+   "flagField": "",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "aml-069",
+   "type": "AML",
+   "title": "Table 7 · Marco B.",
+   "subtitle": "Payment monitoring alert",
+   "avatar": "MB",
+   "fields": [
+    {
+     "k": "Customer",
+     "v": "Regular since 2021 · lives in Prati"
+    },
+    {
+     "k": "Bill",
+     "v": "€22 · 1 carbonara + wine"
+    },
+    {
+     "k": "Payment",
+     "v": "Satispay · own name"
+    },
+    {
+     "k": "Location",
+     "v": "Dining in · Prati, Roma"
+    }
+   ],
+   "answer": "approve",
+   "level": "",
+   "rule": "",
+   "detail": "",
+   "flagField": "",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "aml-070",
+   "type": "AML",
+   "title": "Table 12 · Sofia C.",
+   "subtitle": "Payment monitoring alert",
+   "avatar": "SC",
+   "fields": [
+    {
+     "k": "Customer",
+     "v": "Regular since 2018 · lives in Testaccio"
+    },
+    {
+     "k": "Bill",
+     "v": "€86 · Carbonara for the table"
+    },
+    {
+     "k": "Payment",
+     "v": "Mastercard · own name"
+    },
+    {
+     "k": "Location",
+     "v": "Dining in · Testaccio, Roma"
+    }
+   ],
+   "answer": "approve",
+   "level": "",
+   "rule": "",
+   "detail": "",
+   "flagField": "",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "aml-071",
+   "type": "AML",
+   "title": "Table 2 · Lorenzo M.",
+   "subtitle": "Payment monitoring alert",
+   "avatar": "LM",
+   "fields": [
+    {
+     "k": "Customer",
+     "v": "Regular since 2023 · lives in Pigneto"
+    },
+    {
+     "k": "Bill",
+     "v": "€31 · Carbonara + supplì"
+    },
+    {
+     "k": "Payment",
+     "v": "Cash at the till"
+    },
+    {
+     "k": "Location",
+     "v": "Dining in · Pigneto, Roma"
+    }
+   ],
+   "answer": "approve",
+   "level": "",
+   "rule": "",
+   "detail": "",
+   "flagField": "",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "aml-072",
+   "type": "AML",
+   "title": "Table 9 · Elena G.",
+   "subtitle": "Payment monitoring alert",
+   "avatar": "EG",
+   "fields": [
+    {
+     "k": "Customer",
+     "v": "Regular since 2020 · lives in Garbatella"
+    },
+    {
+     "k": "Bill",
+     "v": "€58 · 2 carbonaras + wine"
+    },
+    {
+     "k": "Payment",
+     "v": "Apple Pay · own name"
+    },
+    {
+     "k": "Location",
+     "v": "Delivery · Garbatella, Roma"
+    }
+   ],
+   "answer": "approve",
+   "level": "",
+   "rule": "",
+   "detail": "",
+   "flagField": "",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "aml-073",
+   "type": "AML",
+   "title": "Table 15 · Yuki T.",
+   "subtitle": "Payment monitoring alert",
+   "avatar": "YT",
+   "fields": [
+    {
+     "k": "Customer",
+     "v": "Regular since 2022 · lives in San Lorenzo"
+    },
+    {
+     "k": "Bill",
+     "v": "€19 · 1 carbonara"
+    },
+    {
+     "k": "Payment",
+     "v": "Visa · own name"
+    },
+    {
+     "k": "Location",
+     "v": "Dining in · San Lorenzo, Roma"
+    }
+   ],
+   "answer": "approve",
+   "level": "",
+   "rule": "",
+   "detail": "",
+   "flagField": "",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "aml-074",
+   "type": "AML",
+   "title": "Table 11 · Andrei P.",
+   "subtitle": "Payment monitoring alert",
+   "avatar": "AP",
+   "fields": [
+    {
+     "k": "Customer",
+     "v": "Regular since 2021 · lives in Parioli"
+    },
+    {
+     "k": "Bill",
+     "v": "9 bills of €9,800 in cash tonight"
+    },
+    {
+     "k": "Payment",
+     "v": "Cash at the till"
+    },
+    {
+     "k": "Location",
+     "v": "Dining in · Parioli, Roma"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Structuring",
+   "detail": "9 × €9,800 in one evening · Just under the €10,000 threshold",
+   "flagField": "Bill",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "aml-075",
+   "type": "AML",
+   "title": "Table 3 · Chiara F.",
+   "subtitle": "Payment monitoring alert",
+   "avatar": "CF",
+   "fields": [
+    {
+     "k": "Customer",
+     "v": "Regular since 2022 · lives in Trastevere"
+    },
+    {
+     "k": "Bill",
+     "v": "Prepaid €60,000 for 3,000 carbonaras, then cancelled"
+    },
+    {
+     "k": "Payment",
+     "v": "Refund of €59,400 requested to another account"
+    },
+    {
+     "k": "Location",
+     "v": "Dining in · Trastevere, Roma"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Pass-through activity",
+   "detail": "In €60,000 · Refund €59,400 to a third-party account · 0 dishes served",
+   "flagField": "Payment",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "aml-076",
+   "type": "AML",
+   "title": "Table 18 · Omar H.",
+   "subtitle": "Payment monitoring alert",
+   "avatar": "OH",
+   "fields": [
+    {
+     "k": "Customer",
+     "v": "Regular since 2020 · lives in Monti"
+    },
+    {
+     "k": "Bill",
+     "v": "€74 · Carbonara for the table"
+    },
+    {
+     "k": "Payment",
+     "v": "6 cards · 6 different names"
+    },
+    {
+     "k": "Location",
+     "v": "Dining in · Monti, Roma"
+    }
+   ],
+   "answer": "flag",
+   "level": "L1",
+   "rule": "Third-party payments",
+   "detail": "One dinner paid with 6 cards registered to 6 different cardholders",
+   "flagField": "Payment",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "aml-077",
+   "type": "AML",
+   "title": "Table 6 · Nikos A.",
+   "subtitle": "Payment monitoring alert",
+   "avatar": "NA",
+   "fields": [
+    {
+     "k": "Customer",
+     "v": "Regular since 2019 · lives in Trastevere"
+    },
+    {
+     "k": "Bill",
+     "v": "€38 · 2 carbonaras"
+    },
+    {
+     "k": "Payment",
+     "v": "Visa · own name"
+    },
+    {
+     "k": "Location",
+     "v": "Delivery to Trastevere · paid from North Korea via VPN"
+    }
+   ],
+   "answer": "flag",
+   "level": "L1",
+   "rule": "Geolocation mismatch",
+   "detail": "Payment IP: North Korea via VPN · Delivery: Trastevere, Roma",
+   "flagField": "Location",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "aml-078",
+   "type": "AML",
+   "title": "Table 21 · Freya L.",
+   "subtitle": "Payment monitoring alert",
+   "avatar": "FL",
+   "fields": [
+    {
+     "k": "Customer",
+     "v": "Regular since 2024 · lives in Prati"
+    },
+    {
+     "k": "Bill",
+     "v": "€210,000 tasting-menu tab this month · no source of funds"
+    },
+    {
+     "k": "Payment",
+     "v": "Mastercard · own name"
+    },
+    {
+     "k": "Location",
+     "v": "Dining in · Prati, Roma"
+    }
+   ],
+   "answer": "flag",
+   "level": "L2",
+   "rule": "Source of funds missing",
+   "detail": "€210,000 spent in 30 days · No source of funds documents",
+   "flagField": "Bill",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "aml-079",
+   "type": "AML",
+   "title": "Table 1 · Kwame O.",
+   "subtitle": "Payment monitoring alert",
+   "avatar": "KO",
+   "fields": [
+    {
+     "k": "Customer",
+     "v": "New customer · first visit today"
+    },
+    {
+     "k": "Bill",
+     "v": "€70,000 deposit for a dinner tonight"
+    },
+    {
+     "k": "Payment",
+     "v": "Visa · own name"
+    },
+    {
+     "k": "Location",
+     "v": "Dining in · Pigneto, Roma"
+    }
+   ],
+   "answer": "flag",
+   "level": "L1",
+   "rule": "Velocity rule",
+   "detail": "New customer · €70,000 paid within hours of the first booking",
+   "flagField": "Bill",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  },
+  {
+   "id": "aml-080",
+   "type": "AML",
+   "title": "Table 13 · Matteo V.",
+   "subtitle": "Payment monitoring alert",
+   "avatar": "MV",
+   "fields": [
+    {
+     "k": "Customer",
+     "v": "Regular since 2021 · lives in Testaccio"
+    },
+    {
+     "k": "Bill",
+     "v": "€26 · 1 carbonara + wine"
+    },
+    {
+     "k": "Payment",
+     "v": "40 coins from the Trevi Fountain"
+    },
+    {
+     "k": "Location",
+     "v": "Dining in · Testaccio, Roma"
+    }
+   ],
+   "answer": "flag",
+   "level": "L1",
+   "rule": "Unusual payment method",
+   "detail": "40 coins recovered from the Trevi Fountain",
+   "flagField": "Payment",
+   "ingredient": "",
+   "warmup": false,
+   "enabled": true
+  }
+ ]
+}

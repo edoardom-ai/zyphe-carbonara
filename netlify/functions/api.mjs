@@ -64,11 +64,14 @@ export default async (request) => {
       const action = url.searchParams.get('action') || 'config';
       if (action === 'config') return json(publicConfig());
       if (action === 'leaderboard') return json(await leaderboard(db, Math.min(50, Number(url.searchParams.get('n')) || 10)));
+      if (action === 'questions') return json(await publicQuestions(db));
       return json({ ok: false, error: 'Unknown action' }, 404);
     }
     if (request.method !== 'POST') return json({ ok: false, error: 'Method not allowed' }, 405);
     const text = await request.text();
-    if (text.length > 16384) return json({ ok: false, error: 'Request too large' }, 413);
+    // Public requests are small; only admin requests (e.g. saving the whole question bank) may be bigger.
+    const limit = request.headers.get('x-admin-key') ? 1024 * 1024 : 16384;
+    if (text.length > limit) return json({ ok: false, error: 'Request too large' }, 413);
     let b; try { b = JSON.parse(text || '{}'); } catch { return json({ ok: false, error: 'Bad request' }, 400); }
     const ip = request.headers.get('x-nf-client-connection-ip') || request.headers.get('x-forwarded-for') || '';
     const ua = (request.headers.get('user-agent') || '').slice(0, 200);
@@ -84,6 +87,9 @@ export default async (request) => {
       if (b.action === 'admin_draw') return json(await adminDraw(db, !!b.force));
       if (b.action === 'admin_disqualify') return json(await adminDisqualify(db, String(b.id || ''), !!b.value));
       if (b.action === 'admin_reset') return json(await adminReset(db, String(b.confirm || '')));
+      if (b.action === 'admin_questions_get') return json({ ok: true, questions: await db.get('content/questions', { type: 'json' }) });
+      if (b.action === 'admin_questions_save') return json(await saveQuestions(db, b.questions));
+      if (b.action === 'admin_questions_reset') { await db.delete('content/questions'); return json({ ok: true }); }
       if (b.action === 'admin_delete_lead') return json(await adminDeleteLead(db, String(b.id || '')));
     }
     return json({ ok: false, error: 'Unknown action' }, 404);
@@ -320,9 +326,44 @@ async function readAllWithKeys(db, keys) {
 async function adminReset(db, confirm) {
   // Wipes leads, games, draws and the leaderboard. Meant for clearing test data before doors open.
   if (confirm !== 'DELETE ALL DATA') return { ok: false, error: 'Type DELETE ALL DATA to confirm.' };
-  const keys = await allKeys(db);
+  const keys = (await allKeys(db)).filter(k => !k.startsWith('content/')); // keep the question bank
   for (let i = 0; i < keys.length; i += 25) await Promise.all(keys.slice(i, i + 25).map(k => db.delete(k)));
   return { ok: true, deleted: keys.length };
+}
+
+// ---------------- question bank ----------------
+// Saved by /admin-questions.html under content/questions. When nothing is saved, the game uses web/questions-default.json.
+async function publicQuestions(db) {
+  const qs = await db.get('content/questions', { type: 'json' });
+  return { ok: true, custom: !!qs, questions: qs ? qs.filter(q => q.enabled !== false) : null };
+}
+const Q_TYPES = ['KYC', 'KYB', 'AML'], Q_LEVELS = ['L1', 'L2', 'L3'], Q_POT = ['guanciale', 'pecorino', 'uova', 'pepe', 'pasta', ''];
+function cleanQuestion(q, i) {
+  const t = (v, n) => clean(v, n);
+  const type = Q_TYPES.includes(q && q.type) ? q.type : null;
+  const title = t(q && q.title, 80);
+  if (!type || !title) throw new Error(`Question ${i + 1}: type and title are required`);
+  const answer = q.answer === 'flag' ? 'flag' : 'approve';
+  const fields = (Array.isArray(q.fields) ? q.fields : []).slice(0, 8).map(f => ({ k: t(f && f.k, 40), v: t(f && f.v, 120) })).filter(f => f.k);
+  const out = { id: /^[a-z0-9-]{1,40}$/.test(q.id || '') ? q.id : `q-${Date.now().toString(36)}-${i}`, type, title,
+    subtitle: t(q.subtitle, 80), avatar: t(q.avatar, 8), fields, answer,
+    level: answer === 'flag' ? (Q_LEVELS.includes(q.level) ? q.level : 'L1') : '',
+    rule: answer === 'flag' ? t(q.rule, 80) : '', detail: answer === 'flag' ? t(q.detail, 200) : '',
+    flagField: answer === 'flag' ? t(q.flagField, 40) : '',
+    ingredient: answer === 'approve' && type === 'KYC' && Q_POT.includes(q.ingredient) ? q.ingredient : '',
+    warmup: type === 'KYC' && !!q.warmup, enabled: q.enabled !== false };
+  if (answer === 'flag' && !out.rule) throw new Error(`"${title}": a flagged question needs a rule name for its alert`);
+  return out;
+}
+async function saveQuestions(db, list) {
+  if (!Array.isArray(list)) return { ok: false, error: 'Nothing to save' };
+  if (list.length > 600) return { ok: false, error: 'Too many questions (max 600)' };
+  let qs;
+  try { qs = list.map(cleanQuestion); } catch (e) { return { ok: false, error: e.message }; }
+  const ids = new Set(); for (const q of qs) { while (ids.has(q.id)) q.id += 'x'; ids.add(q.id); }
+  if (!qs.some(q => q.enabled)) return { ok: false, error: 'Keep at least one question switched on' };
+  await db.setJSON('content/questions', qs);
+  return { ok: true, saved: qs.length };
 }
 
 // ---------------- storage helpers ----------------

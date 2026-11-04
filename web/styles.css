@@ -271,3 +271,7 @@ footer { margin-top: 28px; padding-top: 14px; border-top: 1px solid var(--line);
 .kyc-alert.missed { border-color: #efc3ca; background: #fffafb; }
 
 @media (max-width: 560px) { .alert-slot { min-height: 92px; margin-top: 8px; } .ka-rule { font-size: 15px; } .ka-detail { font-size: 12.5px; } .arena { min-height: 330px; } }
+
+/* L3 alerts (highest severity, set in the question bank) */
+.kyc-alert.L3 { border-left-color: var(--dark); }
+.kyc-alert.L3 .ka-lvl { background: var(--dark); color: #fff; }
