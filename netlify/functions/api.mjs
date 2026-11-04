@@ -78,6 +78,7 @@ export default async (request) => {
 
     if (b.action === 'register') return json(await register(db, b, ip, ua));
     if (b.action === 'score') return json(await score(db, b));
+    if (b.action === 'status') return json(await playerStatus(db, b));
     if (String(b.action || '').startsWith('admin_')) {
       const pw = process.env.ADMIN_PASSWORD || '';
       if (!pw) return json({ ok: false, error: 'Set the ADMIN_PASSWORD environment variable in Netlify first.' }, 500);
@@ -201,6 +202,17 @@ async function finishScore(db, lead, id, s, correct, wrong, now, first, plausibl
   const rank = board.findIndex(k => k.endsWith('_' + id)) + 1 || null;
   return { ok: true, alreadyPlayed: !first, bestScore: lead.best_score, improved: first && plausible, plays: 1, rank,
     leaderboard: await boardRows(db, board.slice(0, 10)), eligible: isOpen() && !excluded(lead.email) };
+}
+
+/** Lets a returning device check whether its remembered ticket still exists (e.g. after an admin deleted it). */
+async function playerStatus(db, b) {
+  const token = String(b.token || '').slice(0, 80);
+  if (!/^[A-Za-z0-9_-]{20,}$/.test(token)) return { ok: false, code: 401, error: 'Unknown player' };
+  const t = await db.get(`tokens/${token}`, { type: 'json' });
+  const lead = t && await db.get(`leads/${t.lead}`, { type: 'json' });
+  if (!lead) return { ok: false, code: 401, error: 'Unknown player' };
+  const m = await db.get(`plays/${t.lead}`, { type: 'json' });
+  return { ok: true, firstName: lead.first_name, played: !!m, bestScore: m ? m.score : 0 };
 }
 
 async function leaderboard(db, n) {

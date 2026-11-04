@@ -63,9 +63,21 @@
     renderCase($('#demoCase'), ZyCases.next());
     document.querySelectorAll('.demo-stack .case:not(#demoCase)').forEach(el => renderCase(el, ZyCases.next()));
     player = store.get();
+    if (player) await checkRemembered();
     if (player && player.played) $('#btnStart').textContent = `See your result, ${player.firstName} →`;
     else if (player) $('#btnStart').textContent = `Play now, ${player.firstName} →`;
     if (KIOSK) setupKiosk();
+  }
+
+  // The device remembers its player. Check with the server that this person still exists (an admin may have
+  // deleted them, or wiped all data), and refresh whether they've played. Offline: keep what we have.
+  async function checkRemembered() {
+    try {
+      const r = await api('status', { token: player.token });
+      player.played = r.played; player.bestScore = r.bestScore; player.firstName = r.firstName || player.firstName; store.set(player);
+    } catch (e) {
+      if (e.status === 401) { store.clear(); player = null; }
+    }
   }
 
   function applyConfig() {
