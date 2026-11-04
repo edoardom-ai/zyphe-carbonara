@@ -175,7 +175,7 @@
   function esc(s) { return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
   function renderCase(el, c) {
     const av = c.emojiAvatar ? `<div class="avatar emoji">${esc(c.avatar)}</div>` : `<div class="avatar" style="background:${c.color}">${esc(c.avatar)}</div>`;
-    const label = { KYC: 'KYC · ingredient', KYB: 'KYB · supplier', AML: 'AML · player' }[c.type];
+    const label = { KYC: 'KYC · ingredient', KYB: 'KYB · supplier', AML: 'AML · diner' }[c.type];
     el.innerHTML = `
       <div class="stamp ok">APPROVED</div><div class="stamp bad">FLAGGED</div>
       <div class="case-head"><span class="tag ${c.type}">${label}</span><span class="case-id">#${esc(c.id)}</span></div>

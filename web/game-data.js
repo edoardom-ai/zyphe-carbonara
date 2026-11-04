@@ -2,7 +2,7 @@
  * Three queues, like a real compliance team:
  *   KYC  → ingredients applying to join the carbonara (identity, origin, expiry, Nonna's sanctions list)
  *   KYB  → suppliers onboarding to the trattoria (owners, registry, licences)
- *   AML  → players on the casino floor (transaction monitoring)
+ *   AML  → diners paying at the trattoria (payment monitoring)
  * Each case is clean or carries exactly ONE red flag. */
 (function () {
   const pick = a => a[Math.floor(Math.random() * a.length)];
@@ -53,7 +53,7 @@
   const SUPPLIERS = ['Salumificio Tiberino', 'Caseificio Colosseo', 'Pastificio Trastevere', 'Uova del Gianicolo', 'Spezie dell\'Impero',
     'Forno Testaccio', 'Vini dei Castelli', 'Gladiator Payments', 'Aurelia Game Studio', 'Lupa Affiliates', 'Fontana Media'];
   const SUPPLIER_KIND = ['Food supplier', 'Food supplier', 'Payment provider', 'Game studio', 'Affiliate partner'];
-  const HANDLES = ['gladiator', 'caesar_bets', 'lupa_lucky', 'nero_spins', 'trevi_coin', 'centurion', 'vespa_vince', 'colosseo_king', 'aurelio', 'roma_ace'];
+  const NEIGHBOURHOODS = ['Trastevere', 'Testaccio', 'Monti', 'Prati', 'Pigneto', 'San Lorenzo', 'Parioli', 'Garbatella'];
   const PALETTE = ['#4fd1ff', '#b18cff', '#ffc857', '#2ee6a6', '#ff9f6e', '#8ab4ff', '#f78fd6'];
 
   let seq = 100 + rnd(0, 800);
@@ -129,24 +129,25 @@
   }
 
   // ---------- AML: players ----------
-  function player() {
-    const h = pick(HANDLES) + rnd(1, 99), c = pick(COUNTRIES), lo = rnd(1, 4) * 50;
+  // ---------- AML: diners paying at the trattoria ----------
+  function diner() {
+    const p = person(), table = rnd(1, 24), area = pick(NEIGHBOURHOODS), bill = rnd(18, 90);
     const f = {
-      Account: `${rnd(1, 6)} yrs · ${c}`,
-      Activity: `Deposits ${eur(lo)}–${eur(lo * rnd(3, 6))}/week, regular play`,
-      Payments: `${pick(['Visa', 'Mastercard', 'PayPal', 'Apple Pay'])} · own name`,
-      Location: `IP ${c} · matches profile`,
+      Customer: `Regular since ${rnd(2018, 2024)} · lives in ${area}`,
+      Bill: `${eur(bill)} · ${pick(['1 carbonara + wine', '2 carbonaras + dessert', 'Carbonara for the table', 'Carbonara + supplì'])}`,
+      Payment: pick(['Visa · own name', 'Mastercard · own name', 'Satispay · own name', 'Apple Pay · own name', 'Cash at the till']),
+      Location: `Dining in · ${area}, Roma`,
     };
     const risks = [
-      () => { const n = rnd(7, 12), v = rnd(97, 99) * 100; f.Activity = `${n} deposits of ${eur(v)} in 24h`; return ['Activity', 'L2', 'Structuring', `${n} × ${eur(v)} in 24h · Just under the €10,000 threshold`]; },
-      () => { const d = rnd(3, 9) * 10000, w = d - rnd(2, 9) * 100; f.Activity = `Deposited ${eur(d)} → withdrew ${eur(w)}, 0 bets`; return ['Activity', 'L2', 'Pass-through activity', `In ${eur(d)} · Out ${eur(w)} · Wagered €0`]; },
-      () => { const n = rnd(5, 8); f.Payments = `${n} cards · ${n} different names`; return ['Payments', 'L1', 'Third-party payments', `${n} cards registered to ${n} different cardholders`]; },
-      () => { const j = pick(HIGH_RISK); f.Location = `IP ${j} via VPN`; return ['Location', 'L1', 'Geolocation mismatch', `IP: ${j} via VPN · Profile: ${c}`]; },
-      () => { const v = rnd(12, 30) * 10000; f.Activity = `${eur(v)} in 30 days · no source of funds`; return ['Activity', 'L2', 'Source of funds missing', `${eur(v)} deposited in 30 days · No SoF documents`]; },
-      () => { const v = rnd(4, 9) * 10000; f.Account = `${rnd(1, 3)} days old · ${c}`; f.Activity = `${eur(v)} deposited on day one`; return ['Activity', 'L1', 'Velocity rule', `New account · ${eur(v)} deposited within 24h of opening`]; },
-      () => { const n = rnd(20, 60); f.Payments = `${n} Trevi Fountain coins`; return ['Payments', 'L1', 'Unusual payment method', `${n} coins recovered from the Trevi Fountain`]; },
+      () => { const n = rnd(7, 12), v = rnd(97, 99) * 100; f.Bill = `${n} bills of ${eur(v)} in cash tonight`; return ['Bill', 'L2', 'Structuring', `${n} × ${eur(v)} in one evening · Just under the €10,000 threshold`]; },
+      () => { const d = rnd(3, 9) * 10000, n = Math.round(d / 20), back = d - rnd(2, 9) * 100; f.Bill = `Prepaid ${eur(d)} for ${n.toLocaleString('en-US')} carbonaras, then cancelled`; f.Payment = `Refund of ${eur(back)} requested to another account`; return ['Payment', 'L2', 'Pass-through activity', `In ${eur(d)} · Refund ${eur(back)} to a third-party account · 0 dishes served`]; },
+      () => { const n = rnd(5, 8); f.Payment = `${n} cards · ${n} different names`; return ['Payment', 'L1', 'Third-party payments', `One dinner paid with ${n} cards registered to ${n} different cardholders`]; },
+      () => { const j = pick(HIGH_RISK); f.Location = `Delivery to ${area} · paid from ${j} via VPN`; return ['Location', 'L1', 'Geolocation mismatch', `Payment IP: ${j} via VPN · Delivery: ${area}, Roma`]; },
+      () => { const v = rnd(12, 30) * 10000; f.Bill = `${eur(v)} tasting-menu tab this month · no source of funds`; return ['Bill', 'L2', 'Source of funds missing', `${eur(v)} spent in 30 days · No source of funds documents`]; },
+      () => { const v = rnd(4, 9) * 10000; f.Customer = `New customer · first visit today`; f.Bill = `${eur(v)} deposit for a dinner tonight`; return ['Bill', 'L1', 'Velocity rule', `New customer · ${eur(v)} paid within hours of the first booking`]; },
+      () => { const n = rnd(20, 60); f.Payment = `${n} coins from the Trevi Fountain`; return ['Payment', 'L1', 'Unusual payment method', `${n} coins recovered from the Trevi Fountain`]; },
     ];
-    return build('AML', '@' + h, 'Transaction monitoring alert', h.slice(0, 2).toUpperCase(), f, risks, 0.5);
+    return build('AML', `Table ${table} · ${p.first} ${p.last.charAt(0)}.`, 'Payment monitoring alert', (p.first[0] + p.last[0]).toUpperCase(), f, risks, 0.5);
   }
 
   function build(type, title, subtitle, avatar, f, risks, pRisk) {
@@ -169,7 +170,7 @@
       let t = r < 0.5 ? 'KYC' : r < 0.75 ? 'KYB' : 'AML';
       if (t === last && t !== 'KYC' && Math.random() < 0.5) t = 'KYC';
       last = t;
-      return t === 'KYC' ? ingredient(needKey) : t === 'KYB' ? supplier() : player();
+      return t === 'KYC' ? ingredient(needKey) : t === 'KYB' ? supplier() : diner();
     },
   };
 })();
